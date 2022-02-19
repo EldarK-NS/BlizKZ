@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "atoms": ["src/components/atoms"],
+      "molecules": ["src/components/molecules"],
+      "organisms": ["src/components/organisms"],
+      "templates": ["src/components/templates"],
+      "context": ["src/context"],
+      "modules": ["src/state/modules"],
+      "models": ["src/state/models"],
+      "repositories": ["src/state/repositories"],
+      "services": ["src/state/services"],
+      "store": ["src/state/store"],
+      "theme": ["src/theme"],
+      "hooks": ["src/hooks"],
+      "nav": ["src/navigation"],
+      "navTypes": ["src/navigation/types.ts"],
+      "screens": ["src/screens"]
+    }
+  },
+  "exclude": ["node_modules"]
+}

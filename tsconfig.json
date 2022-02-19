@@ -1,0 +1,44 @@
+{
+  "compilerOptions": {
+    "experimentalDecorators": true,
+    "target": "esnext",
+    "module": "commonjs", //
+    "lib": ["es2018"],
+    "allowJs": true,
+    "jsx": "react-native",
+    "noEmit": true,
+    "isolatedModules": true,
+    "strict": true,
+    "moduleResolution": "node",
+    "baseUrl": "./",
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true, //
+    "resolveJsonModule": true, //
+    "paths": {
+      "atoms/*": ["src/components/atoms/*"],
+      "molecules/*": ["src/components/molecules/*"],
+      "organisms/*": ["src/components/organisms/*"],
+      "templates/*": ["src/components/templates/*"],
+      "context/*": ["src/context/*"],
+      "modules": ["src/state/modules/index.ts"],
+      "repositories/*": ["src/state/repositories/*"],
+      "services/*": ["src/state/services/*"],
+      "store/*": ["src/state/store/*"],
+      "models/*": ["src/state/models/*"],
+      "theme/*": ["src/theme/*"],
+      "hooks/*": ["src/hooks/*"],
+      "lang/*": ["src/lang/*"],
+      "nav/*": ["src/navigation/*"],
+      "navTypes": ["src/navigation/types.ts"],
+      "screens/*": ["src/screens/*"]
+    },
+    "types": ["@types/react-native"]
+  },
+  "exclude": [
+    "node_modules",
+    "babel.config.js",
+    "metro.config.js",
+    "jest.config.js"
+  ]
+}
