@@ -2,10 +2,12 @@ import {IColor} from 'theme/types';
 
 export const colors: IColor = {
   blue: '#008EFF',
-  grey: '#A2A9B2',
+  red: '#FF0000',
   lightGrey: '#DFE2E5',
-  green: '#04CC71',
-  black: '#20273D',
   yellow: '#FFF389',
-  background: '#F0F4F8',
+  green: '#04CC71',
+  text_second: '#A2A9B2',
+  text: '#20273D',
+  disable: '#F0F4F8',
+  form_background: '#FFFFFF',
 };

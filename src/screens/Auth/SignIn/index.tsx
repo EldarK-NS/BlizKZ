@@ -1,25 +1,19 @@
 import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 import {colors} from 'theme/colors';
+import TextComponent from 'atoms/TextComponent';
 
 const SignIn = () => {
   return (
     <View style={{flex: 1, backgroundColor: 'white'}}>
-      <Text
-        style={{
-          fontFamily: 'IBMPlexSans-Bold',
-          fontSize: 25,
-          color: colors.blue,
-        }}>
-        ОТПРАВИТЬ
-      </Text>
-      <Text style={{fontSize: 16, fontFamily: 'Arial'}}>
-        Расчет расстоянийлл
-      </Text>
-      <Text style={{fontFamily: 'IBMPlexSans-SemiBold', fontSize: 18}}>
-        Расчет расстоянийлл
-      </Text>
-      <Text style={styles.text}>Спецтехника</Text>
+      <TextComponent
+        text={'Hello'}
+        text_color={'second'}
+        type={'h1'}
+        font_family={'bold'}
+        position={'left'}
+        transform={'uppercase'}
+      />
     </View>
   );
 };

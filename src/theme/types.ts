@@ -1,9 +1,11 @@
 export interface IColor {
   blue: string;
-  grey: string;
+  red: string;
+  text_second: string;
   lightGrey: string;
   green: string;
-  black: string;
+  text: string;
   yellow: string;
-  background: string;
+  disable: string;
+  form_background: string;
 }
