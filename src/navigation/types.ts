@@ -1,4 +1,5 @@
 export type AuthNavigatorParamsList = {
+  Registration_Company: undefined;
   Registration: undefined;
   SignIn: undefined;
 };

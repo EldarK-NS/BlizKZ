@@ -1,19 +1,34 @@
-import {StyleSheet, Text, View} from 'react-native';
+import {StyleSheet, View} from 'react-native';
 import React from 'react';
 import {colors} from 'theme/colors';
 import TextComponent from 'atoms/TextComponent';
+import SigninComponent from 'templates/AuthComponents/SignInComponent';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {AuthNavigatorParamsList} from 'nav/types';
 
-const SignIn = () => {
+export interface ISignInProps {
+  navigation: NativeStackNavigationProp<AuthNavigatorParamsList, 'SignIn'>;
+}
+
+const SignIn: React.FC<ISignInProps> = ({navigation}) => {
   return (
-    <View style={{flex: 1, backgroundColor: 'white'}}>
+    <View style={styles.container}>
       <TextComponent
-        text={'Hello'}
-        text_color={'second'}
-        type={'h1'}
-        font_family={'bold'}
-        position={'left'}
-        transform={'uppercase'}
+        text={'Вход'}
+        text_color={'text'}
+        type={'h0'}
+        font_family={'med'}
+        position={'center'}
+        Style={{marginTop: 80}}
       />
+      <TextComponent
+        text={'Введите ваши данные для входа'}
+        text_color={'second'}
+        type={'h4'}
+        font_family={'med'}
+        position={'center'}
+      />
+      <SigninComponent navigation={navigation} />
     </View>
   );
 };
@@ -21,7 +36,11 @@ const SignIn = () => {
 export default SignIn;
 
 const styles = StyleSheet.create({
-  text: {
-    color: colors.green,
+  container: {
+    width: '100%',
+    height: '100%',
+    backgroundColor: colors.background,
+    alignItems: 'center',
+    paddingHorizontal: 35,
   },
 });

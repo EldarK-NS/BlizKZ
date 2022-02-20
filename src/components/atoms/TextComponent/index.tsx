@@ -2,11 +2,11 @@ import {StyleSheet, Text, View, ViewStyle} from 'react-native';
 import React from 'react';
 import {colors} from 'theme/colors';
 
-type VariantType = 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+type VariantType = 'h0' | 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
 
 type FontFamily = 'reg' | 'med' | 'semi' | 'bold';
 
-type TextColor = 'text' | 'second' | 'light' | 'blue';
+type TextColor = 'text' | 'second' | 'light' | 'blue' | 'error';
 
 type Position = 'center' | 'left' | 'right';
 
@@ -18,6 +18,7 @@ export interface ITextComponent {
   font_family: FontFamily;
   position: Position;
   transform?: 'none' | 'capitalize' | 'uppercase' | 'lowercase' | undefined;
+  textHeight?: number;
 }
 
 const TextComponent = ({
@@ -28,6 +29,7 @@ const TextComponent = ({
   font_family,
   position,
   transform,
+  textHeight,
 }: ITextComponent): JSX.Element => {
   return (
     <View style={Style}>
@@ -37,7 +39,7 @@ const TextComponent = ({
           styles[text_color],
           styles[font_family],
           styles[position],
-          {textTransform: transform},
+          {textTransform: transform, lineHeight: textHeight},
         ]}>
         {text}
       </Text>
@@ -48,6 +50,10 @@ const TextComponent = ({
 export default TextComponent;
 
 const styles = StyleSheet.create({
+  h0: {
+    fontSize: 30,
+    lineHeight: 48,
+  },
   h1: {
     fontSize: 20,
     lineHeight: 24,
@@ -83,6 +89,9 @@ const styles = StyleSheet.create({
   },
   blue: {
     color: colors.blue,
+  },
+  error: {
+    color: colors.red,
   },
   reg: {
     fontFamily: 'IBMPlexSans-Regular',

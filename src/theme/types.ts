@@ -8,4 +8,5 @@ export interface IColor {
   yellow: string;
   disable: string;
   form_background: string;
+  background: string;
 }

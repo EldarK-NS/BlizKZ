@@ -5,6 +5,7 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {observer} from 'mobx-react';
 import SignIn from 'screens/Auth/SignIn';
 import Registration from 'screens/Auth/Registration';
+import RegistrationCompany from 'screens/Auth/RegistrationCompany';
 
 const Stack = createNativeStackNavigator<AuthNavigatorParamsList>();
 
@@ -12,8 +13,27 @@ const AuthStack = () => {
   return (
     <>
       <Stack.Navigator>
-        <Stack.Screen name={'SignIn'} component={SignIn} />
-        <Stack.Screen name={'Registration'} component={Registration} />
+        <Stack.Screen
+          name={'SignIn'}
+          component={SignIn}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name={'Registration'}
+          component={Registration}
+          options={{
+            headerShown: false,
+          }}
+        />
+        <Stack.Screen
+          name={'Registration_Company'}
+          component={RegistrationCompany}
+          options={{
+            headerShown: false,
+          }}
+        />
       </Stack.Navigator>
     </>
   );

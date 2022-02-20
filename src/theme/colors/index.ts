@@ -10,4 +10,5 @@ export const colors: IColor = {
   text: '#20273D',
   disable: '#F0F4F8',
   form_background: '#FFFFFF',
+  background: '#FEFEFE',
 };

@@ -6,14 +6,16 @@ import {colors} from 'theme/colors';
 import Icon from 'react-native-vector-icons/AntDesign';
 import TextComponent from 'atoms/TextComponent';
 
-export interface IRegistrationProps {
+export interface IRegistrationCompanyProps {
   navigation: NativeStackNavigationProp<
     AuthNavigatorParamsList,
-    'Registration'
+    'Registration_Company'
   >;
 }
 
-const Registration: React.FC<IRegistrationProps> = ({navigation}) => {
+const RegistrationCompany: React.FC<IRegistrationCompanyProps> = ({
+  navigation,
+}) => {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -30,11 +32,18 @@ const Registration: React.FC<IRegistrationProps> = ({navigation}) => {
           position={'center'}
         />
       </View>
+      <TextComponent
+        text={'Введите информацию для начала регистрации'}
+        text_color={'second'}
+        type={'h3'}
+        font_family={'med'}
+        position={'center'}
+      />
     </View>
   );
 };
 
-export default Registration;
+export default RegistrationCompany;
 
 const styles = StyleSheet.create({
   container: {
@@ -47,5 +56,6 @@ const styles = StyleSheet.create({
   header: {
     flexDirection: 'row',
     alignItems: 'center',
+    marginTop: 80,
   },
 });
