@@ -12,6 +12,11 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		6172F2D35A4C3AA820D92908 /* libPods-BlizKZ.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6423831EA8574132BED9D8CC /* libPods-BlizKZ.a */; };
+		6C9A0FDE27C1707200535F14 /* IBMPlexSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C5F71AADB77B47BD90C93402 /* IBMPlexSans-Bold.ttf */; };
+		6C9A0FDF27C1707200535F14 /* IBMPlexSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = DFC8FA2573F84EFFA86A5A9A /* IBMPlexSans-Light.ttf */; };
+		6C9A0FE027C1707200535F14 /* IBMPlexSans-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7B8F9474DD384841B7D3C221 /* IBMPlexSans-Medium.ttf */; };
+		6C9A0FE127C1707200535F14 /* IBMPlexSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9E836088FAFF4A36B007C86D /* IBMPlexSans-Regular.ttf */; };
+		6C9A0FE227C1707200535F14 /* IBMPlexSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BFE051B0305A4F5ABA5DCEDE /* IBMPlexSans-SemiBold.ttf */; };
 		7EF68E3733C33B6898317E18 /* libPods-BlizKZ-BlizKZTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = ABFE59519B596E51CEFDCCC0 /* libPods-BlizKZ-BlizKZTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
@@ -39,10 +44,15 @@
 		1D0AE47A65C8663E3B452821 /* Pods-BlizKZ-BlizKZTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlizKZ-BlizKZTests.release.xcconfig"; path = "Target Support Files/Pods-BlizKZ-BlizKZTests/Pods-BlizKZ-BlizKZTests.release.xcconfig"; sourceTree = "<group>"; };
 		6423831EA8574132BED9D8CC /* libPods-BlizKZ.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BlizKZ.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6C97AB639B58BBB4B15BBE30 /* Pods-BlizKZ-BlizKZTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlizKZ-BlizKZTests.debug.xcconfig"; path = "Target Support Files/Pods-BlizKZ-BlizKZTests/Pods-BlizKZ-BlizKZTests.debug.xcconfig"; sourceTree = "<group>"; };
+		7B8F9474DD384841B7D3C221 /* IBMPlexSans-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "IBMPlexSans-Medium.ttf"; path = "../src/assets/fonts/IBMPlexSans-Medium.ttf"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = BlizKZ/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9E836088FAFF4A36B007C86D /* IBMPlexSans-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "IBMPlexSans-Regular.ttf"; path = "../src/assets/fonts/IBMPlexSans-Regular.ttf"; sourceTree = "<group>"; };
 		ABFE59519B596E51CEFDCCC0 /* libPods-BlizKZ-BlizKZTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-BlizKZ-BlizKZTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BFE051B0305A4F5ABA5DCEDE /* IBMPlexSans-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "IBMPlexSans-SemiBold.ttf"; path = "../src/assets/fonts/IBMPlexSans-SemiBold.ttf"; sourceTree = "<group>"; };
 		C0A881CF5CF3F2B244570E2A /* Pods-BlizKZ.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlizKZ.debug.xcconfig"; path = "Target Support Files/Pods-BlizKZ/Pods-BlizKZ.debug.xcconfig"; sourceTree = "<group>"; };
+		C5F71AADB77B47BD90C93402 /* IBMPlexSans-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "IBMPlexSans-Bold.ttf"; path = "../src/assets/fonts/IBMPlexSans-Bold.ttf"; sourceTree = "<group>"; };
 		D00AAFFCFCFDA5787532823F /* Pods-BlizKZ.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BlizKZ.release.xcconfig"; path = "Target Support Files/Pods-BlizKZ/Pods-BlizKZ.release.xcconfig"; sourceTree = "<group>"; };
+		DFC8FA2573F84EFFA86A5A9A /* IBMPlexSans-Light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "IBMPlexSans-Light.ttf"; path = "../src/assets/fonts/IBMPlexSans-Light.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -122,6 +132,7 @@
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
 				E233CBF5F47BEE60B243DCF8 /* Pods */,
+				B8304B93544F409680DD71F2 /* Resources */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -137,6 +148,18 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		B8304B93544F409680DD71F2 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C5F71AADB77B47BD90C93402 /* IBMPlexSans-Bold.ttf */,
+				DFC8FA2573F84EFFA86A5A9A /* IBMPlexSans-Light.ttf */,
+				7B8F9474DD384841B7D3C221 /* IBMPlexSans-Medium.ttf */,
+				9E836088FAFF4A36B007C86D /* IBMPlexSans-Regular.ttf */,
+				BFE051B0305A4F5ABA5DCEDE /* IBMPlexSans-SemiBold.ttf */,
+			);
+			name = Resources;
+			sourceTree = "<group>";
+		};
 		E233CBF5F47BEE60B243DCF8 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -145,7 +168,6 @@
 				6C97AB639B58BBB4B15BBE30 /* Pods-BlizKZ-BlizKZTests.debug.xcconfig */,
 				1D0AE47A65C8663E3B452821 /* Pods-BlizKZ-BlizKZTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -243,6 +265,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6C9A0FDE27C1707200535F14 /* IBMPlexSans-Bold.ttf in Resources */,
+				6C9A0FDF27C1707200535F14 /* IBMPlexSans-Light.ttf in Resources */,
+				6C9A0FE027C1707200535F14 /* IBMPlexSans-Medium.ttf in Resources */,
+				6C9A0FE127C1707200535F14 /* IBMPlexSans-Regular.ttf in Resources */,
+				6C9A0FE227C1707200535F14 /* IBMPlexSans-SemiBold.ttf in Resources */,
 				81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 			);
