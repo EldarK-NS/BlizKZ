@@ -35,13 +35,6 @@ const AuthStack = () => {
             headerShown: false,
           }}
         />
-        <Stack.Screen
-          name={'CompanySecond'}
-          component={CompanyRegSecond}
-          options={{
-            headerShown: false,
-          }}
-        />
       </Stack.Navigator>
     </>
   );

@@ -1,13 +1,11 @@
 import {Pressable, StyleSheet, View} from 'react-native';
-import React, {useContext, useEffect} from 'react';
+import React from 'react';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {AuthNavigatorParamsList} from 'nav/types';
 import {colors} from 'theme/colors';
 import Icon from 'react-native-vector-icons/AntDesign';
 import TextComponent from 'atoms/TextComponent';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
-import {AppContext} from 'context/App';
-import {toJS} from 'mobx';
 import CompanyFirst from 'templates/AuthComponents/CompanyFirst';
 
 export interface IRCompanyRegFirstProps {
@@ -22,7 +20,6 @@ const CompanyRegFirst: React.FC<IRCompanyRegFirstProps> = ({navigation}) => {
     <KeyboardAwareScrollView
       enableOnAndroid={true}
       enableAutomaticScroll={true}
-      extraScrollHeight={10}
       style={styles.container}>
       <View style={{alignItems: 'center'}}>
         <View style={styles.header}>
@@ -40,7 +37,7 @@ const CompanyRegFirst: React.FC<IRCompanyRegFirstProps> = ({navigation}) => {
           />
         </View>
         <TextComponent
-          text={'Введите информацию для начала регистрации'}
+          text={'Введите информацию для регистрации'}
           text_color={'second'}
           type={'h3'}
           font_family={'med'}
@@ -57,8 +54,7 @@ export default CompanyRegFirst;
 
 const styles = StyleSheet.create({
   container: {
-    width: '100%',
-    height: '100%',
+    flex: 1,
     backgroundColor: colors.background,
     paddingHorizontal: 35,
   },

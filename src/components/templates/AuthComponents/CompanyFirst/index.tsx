@@ -50,7 +50,7 @@ const CompanyFirst: React.FC<ICompanyFirst> = ({navigation}) => {
   const dataType = toJS(companyTypesStore.itemsList);
 
   const SignUp = (data: any) => {
-    console.log(data);
+    console.log('data', data);
   };
 
   const goToSignIn = () => {
@@ -195,14 +195,14 @@ const CompanyFirst: React.FC<ICompanyFirst> = ({navigation}) => {
         />
         <MyButton
           onpress={handleSubmit(SignUp)}
-          title={'Войти в аккаунт'}
+          title={'Регистрация'}
           Style={{borderRadius: 5, width: '100%', marginTop: 30}}
           size={'full'}
           background={'blue'}
         />
         <LinkedText
-          first_text={'Нет аккаунта?'}
-          second_text={'Зарегистрируйтесь'}
+          first_text={'Зарегистрированны? '}
+          second_text={'Войти'}
           onpress={goToSignIn}
           Style={{marginTop: 40, alignSelf: 'center'}}
           textStyle={{alignSelf: 'center', marginBottom: 40}}
@@ -217,8 +217,7 @@ export default observer(CompanyFirst);
 
 const styles = StyleSheet.create({
   container: {
-    width: '100%',
-    height: '100%',
+    flex: 1,
   },
   row: {
     flexDirection: 'row',
@@ -226,5 +225,6 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     marginTop: 20,
     marginBottom: 10,
+    zIndex: 10,
   },
 });

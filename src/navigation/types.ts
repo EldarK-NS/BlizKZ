@@ -1,6 +1,5 @@
 export type AuthNavigatorParamsList = {
   CompanyFirst: undefined;
-  CompanySecond: undefined;
   Person: undefined;
   SignIn: undefined;
 };

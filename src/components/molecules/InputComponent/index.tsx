@@ -104,7 +104,6 @@ const styles = StyleSheet.create({
     backgroundColor: colors.form_background,
     flexDirection: 'row',
     alignItems: 'center',
-    padding: 5,
   },
   input: {
     marginLeft: 10,
