@@ -1,4 +1,4 @@
-import {Pressable, StyleSheet, Text, View} from 'react-native';
+import {Pressable, StyleSheet, View} from 'react-native';
 import React from 'react';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {AuthNavigatorParamsList} from 'nav/types';
@@ -6,14 +6,11 @@ import {colors} from 'theme/colors';
 import Icon from 'react-native-vector-icons/AntDesign';
 import TextComponent from 'atoms/TextComponent';
 
-export interface IRegistrationProps {
-  navigation: NativeStackNavigationProp<
-    AuthNavigatorParamsList,
-    'Registration'
-  >;
+export interface IPersonRegProps {
+  navigation: NativeStackNavigationProp<AuthNavigatorParamsList, 'Person'>;
 }
 
-const Registration: React.FC<IRegistrationProps> = ({navigation}) => {
+const PersonReg: React.FC<IPersonRegProps> = ({navigation}) => {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -34,7 +31,7 @@ const Registration: React.FC<IRegistrationProps> = ({navigation}) => {
   );
 };
 
-export default Registration;
+export default PersonReg;
 
 const styles = StyleSheet.create({
   container: {

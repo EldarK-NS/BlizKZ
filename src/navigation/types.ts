@@ -1,6 +1,7 @@
 export type AuthNavigatorParamsList = {
-  Registration_Company: undefined;
-  Registration: undefined;
+  CompanyFirst: undefined;
+  CompanySecond: undefined;
+  Person: undefined;
   SignIn: undefined;
 };
 export type TabNavigatorParamsList = {

@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
+import {StyleSheet} from 'react-native';
 import Routes from './navigation';
 import {configure} from 'mobx';
 import {AppContextProvider} from 'context/App';

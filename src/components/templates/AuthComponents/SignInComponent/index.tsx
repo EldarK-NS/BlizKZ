@@ -9,6 +9,7 @@ import RulesComponent from 'atoms/RulesComponent';
 import LinkedText from 'atoms/LinkedText';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {AuthNavigatorParamsList} from 'nav/types';
+import {colors} from 'theme/colors';
 
 export interface ISigninComponentProp {
   navigation: NativeStackNavigationProp<AuthNavigatorParamsList, 'SignIn'>;
@@ -28,9 +29,9 @@ const SigninComponent: React.FC<ISigninComponentProp> = ({navigation}) => {
 
   const goToRegistration = () => {
     if (!company) {
-      navigation.navigate('Registration');
+      navigation.navigate('Person');
     } else {
-      navigation.navigate('Registration_Company');
+      navigation.navigate('CompanyFirst');
     }
   };
 
@@ -57,6 +58,8 @@ const SigninComponent: React.FC<ISigninComponentProp> = ({navigation}) => {
         name={'password'}
         Style={{width: '100%'}}
         control={control}
+        secureTextEntry
+        secure
         rules={{
           required: 'Введите пароль!',
           minLength: {
@@ -101,5 +104,6 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
     alignItems: 'center',
+    backgroundColor: colors.background,
   },
 });

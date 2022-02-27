@@ -3,6 +3,7 @@ import {API_KEY} from '@env';
 import EncryptedStorage from 'react-native-encrypted-storage';
 
 const api = API_KEY;
+console.log('API_KEY', api);
 
 const $axios: AxiosInstance = axios.create({
   baseURL: api,

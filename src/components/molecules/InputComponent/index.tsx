@@ -1,8 +1,16 @@
-import {StyleSheet, Text, View, TextInput, ViewStyle} from 'react-native';
-import React from 'react';
+import {
+  StyleSheet,
+  Text,
+  View,
+  TextInput,
+  ViewStyle,
+  Pressable,
+} from 'react-native';
+import React, {useState} from 'react';
 import {Controller} from 'react-hook-form';
 import {colors} from 'theme/colors';
 import TextComponent from 'atoms/TextComponent';
+import Icon from 'react-native-vector-icons/FontAwesome5';
 
 export interface IInputComponent {
   placeholder: string;
@@ -11,6 +19,15 @@ export interface IInputComponent {
   control: any;
   rules: any;
   wrapperStyle?: ViewStyle;
+  secureTextEntry?: boolean;
+  secure?: boolean;
+  keyboardType?:
+    | 'default'
+    | 'number-pad'
+    | 'decimal-pad'
+    | 'numeric'
+    | 'email-address'
+    | 'phone-pad';
 }
 
 const InputComponent = ({
@@ -20,7 +37,12 @@ const InputComponent = ({
   control,
   rules = {},
   wrapperStyle,
+  secureTextEntry = false,
+  secure,
+  keyboardType = 'default',
 }: IInputComponent): JSX.Element => {
+  const [isSecure, setIsSecure] = useState<boolean>(true);
+
   return (
     <View style={wrapperStyle}>
       <Controller
@@ -43,7 +65,14 @@ const InputComponent = ({
                 onChangeText={onChange}
                 onBlur={onBlur}
                 value={value}
+                secureTextEntry={secure ? isSecure : secureTextEntry}
+                keyboardType={keyboardType}
               />
+              {secure && (
+                <Pressable onPress={() => setIsSecure(!isSecure)}>
+                  <Icon name="eye-slash" size={18} color={colors.text} />
+                </Pressable>
+              )}
             </View>
             {error && (
               <TextComponent
@@ -70,10 +99,16 @@ const styles = StyleSheet.create({
     height: 44,
     borderWidth: 0.5,
     borderColor: colors.text_second,
-    justifyContent: 'center',
+    justifyContent: 'space-between',
     borderRadius: 5,
+    backgroundColor: colors.form_background,
+    flexDirection: 'row',
+    alignItems: 'center',
+    padding: 5,
   },
   input: {
     marginLeft: 10,
+    backgroundColor: colors.form_background,
+    width: '80%',
   },
 });
