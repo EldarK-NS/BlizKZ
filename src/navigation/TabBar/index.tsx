@@ -4,11 +4,11 @@ import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {TabNavigatorParamsList} from 'nav/types';
 import Feather from 'react-native-vector-icons/Feather';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
-import MainScreen from 'screens/MainScreen';
 import InWork from 'screens/InWork';
 import AddAdvert from 'screens/AddAdvert';
 import ChatScreen from 'screens/ChatScreen';
 import ProfileScreen from 'screens/ProfileScreen';
+import MainScreenStack from './MainScreenStack';
 
 const Tab = createBottomTabNavigator<TabNavigatorParamsList>();
 
@@ -50,7 +50,7 @@ const TabBarStack = (): JSX.Element => {
           tabBarHideOnKeyboard: true,
         })}>
         <Tab.Screen
-          component={MainScreen}
+          component={MainScreenStack}
           name={'Main'}
           options={{
             headerShown: false,

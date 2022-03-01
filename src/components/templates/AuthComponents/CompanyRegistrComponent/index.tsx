@@ -17,14 +17,16 @@ import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 const EMAIL_REGEX =
   /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
 
-export interface ICompanyFirst {
+export interface ICompanyRegistrComponent {
   navigation: NativeStackNavigationProp<
     AuthNavigatorParamsList,
-    'CompanyFirst'
+    'CompanyRegistr'
   >;
 }
 
-const CompanyFirst: React.FC<ICompanyFirst> = ({navigation}) => {
+const CompanyRegistrComponent: React.FC<ICompanyRegistrComponent> = ({
+  navigation,
+}) => {
   const [open, setOpen] = useState<boolean>(false);
   const {
     control,
@@ -213,7 +215,7 @@ const CompanyFirst: React.FC<ICompanyFirst> = ({navigation}) => {
   );
 };
 
-export default observer(CompanyFirst);
+export default observer(CompanyRegistrComponent);
 
 const styles = StyleSheet.create({
   container: {

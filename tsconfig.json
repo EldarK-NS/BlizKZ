@@ -31,7 +31,8 @@
       "lang/*": ["src/lang/*"],
       "nav/*": ["src/navigation/*"],
       "navTypes": ["src/navigation/types.ts"],
-      "screens/*": ["src/screens/*"]
+      "screens/*": ["src/screens/*"],
+      "data/*": ["src/assets/data/*"]
     },
     "types": ["@types/react-native"]
   },

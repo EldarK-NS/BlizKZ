@@ -4,9 +4,8 @@ import {AuthNavigatorParamsList} from 'navTypes';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {observer} from 'mobx-react';
 import SignIn from 'screens/Auth/SignIn';
-import CompanyRegSecond from 'screens/Auth/CompanyRegSecond';
-import CompanyRegFirst from 'screens/Auth/CompanyRegFirst';
 import PersonReg from 'screens/Auth/PersonReg';
+import CompanyRegistrScreen from 'screens/Auth/CompanyRegistrScreen';
 
 const Stack = createNativeStackNavigator<AuthNavigatorParamsList>();
 
@@ -29,8 +28,8 @@ const AuthStack = () => {
           }}
         />
         <Stack.Screen
-          name={'CompanyFirst'}
-          component={CompanyRegFirst}
+          name={'CompanyRegistr'}
+          component={CompanyRegistrScreen}
           options={{
             headerShown: false,
           }}

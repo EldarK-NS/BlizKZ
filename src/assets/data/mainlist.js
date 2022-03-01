@@ -1,0 +1,42 @@
+export const filterItemsList = [
+  {
+    id: '1',
+    title: 'Грузы',
+    descr: 'поиск грузов',
+    icon: 'package-variant-closed',
+    mainPath: 'Cargo',
+    screen: 'Form',
+  },
+  {
+    id: '2',
+    title: 'Транспорт',
+    descr: 'поиск транспорта',
+    icon: 'truck-outline',
+    mainPath: 'Transport',
+    screen: 'Form',
+  },
+  {
+    id: '3',
+    title: 'Аукцион',
+    descr: 'торги за грузы',
+    icon: 'resistor',
+    mainPath: 'Auction',
+    screen: 'Form',
+  },
+  {
+    id: '4',
+    title: 'Склады',
+    descr: '560 предложений',
+    icon: 'dolly',
+    mainPath: 'Storage',
+    screen: 'Form',
+  },
+  {
+    id: '5',
+    title: 'Спецтехника',
+    descr: '960 предложений',
+    icon: 'excavator',
+    mainPath: 'SpecEquipment',
+    screen: 'Form',
+  },
+];

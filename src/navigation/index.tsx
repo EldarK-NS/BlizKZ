@@ -15,9 +15,9 @@ const Navigator = observer((): JSX.Element => {
     <>
       <Stack.Navigator
         screenOptions={{headerShown: false}}
-        initialRouteName={'Auth'}>
-        <Stack.Screen name={'Auth'} component={AuthStack} />
+        initialRouteName={'TabBar'}>
         <Stack.Screen name={'TabBar'} component={TabBarStack} />
+        <Stack.Screen name={'Auth'} component={AuthStack} />
       </Stack.Navigator>
     </>
   );

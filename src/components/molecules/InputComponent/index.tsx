@@ -69,7 +69,9 @@ const InputComponent = ({
                 keyboardType={keyboardType}
               />
               {secure && (
-                <Pressable onPress={() => setIsSecure(!isSecure)}>
+                <Pressable
+                  onPress={() => setIsSecure(!isSecure)}
+                  style={{paddingRight: 10}}>
                   <Icon name="eye-slash" size={18} color={colors.text} />
                 </Pressable>
               )}

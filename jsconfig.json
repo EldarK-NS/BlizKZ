@@ -16,7 +16,8 @@
       "hooks": ["src/hooks"],
       "nav": ["src/navigation"],
       "navTypes": ["src/navigation/types.ts"],
-      "screens": ["src/screens"]
+      "screens": ["src/screens"],
+      "data": ["src/assets/data"]
     }
   },
   "exclude": ["node_modules"]

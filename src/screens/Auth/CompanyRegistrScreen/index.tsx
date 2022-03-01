@@ -6,16 +6,18 @@ import {colors} from 'theme/colors';
 import Icon from 'react-native-vector-icons/AntDesign';
 import TextComponent from 'atoms/TextComponent';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
-import CompanyFirst from 'templates/AuthComponents/CompanyFirst';
+import CompanyRegistrComponent from 'templates/AuthComponents/CompanyRegistrComponent';
 
-export interface IRCompanyRegFirstProps {
+export interface ICompanyRegistrScreenProps {
   navigation: NativeStackNavigationProp<
     AuthNavigatorParamsList,
-    'CompanyFirst'
+    'CompanyRegistr'
   >;
 }
 
-const CompanyRegFirst: React.FC<IRCompanyRegFirstProps> = ({navigation}) => {
+const CompanyRegistrScreen: React.FC<ICompanyRegistrScreenProps> = ({
+  navigation,
+}) => {
   return (
     <KeyboardAwareScrollView
       enableOnAndroid={true}
@@ -45,12 +47,12 @@ const CompanyRegFirst: React.FC<IRCompanyRegFirstProps> = ({navigation}) => {
           Style={{marginTop: 10, marginBottom: 20}}
         />
       </View>
-      <CompanyFirst navigation={navigation} />
+      <CompanyRegistrComponent navigation={navigation} />
     </KeyboardAwareScrollView>
   );
 };
 
-export default CompanyRegFirst;
+export default CompanyRegistrScreen;
 
 const styles = StyleSheet.create({
   container: {

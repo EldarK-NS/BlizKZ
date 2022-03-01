@@ -33,6 +33,7 @@ module.exports = function (api) {
             nav: path.resolve(__dirname, './src/navigation'),
             navTypes: path.resolve(__dirname, './src/navigation/types.ts'),
             screens: path.resolve(__dirname, './src/screens'),
+            data: path.resolve(__dirname, './src/assets/data'),
           },
         },
       ],
