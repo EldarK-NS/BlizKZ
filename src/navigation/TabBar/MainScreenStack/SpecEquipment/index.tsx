@@ -10,7 +10,9 @@ const Stack =
 
 const SpecEquipmentStack = () => {
   return (
-    <Stack.Navigator>
+    <Stack.Navigator
+      screenOptions={{headerShown: false}}
+      initialRouteName="Form">
       <Stack.Screen name="Form" component={FormScreen} />
       <Stack.Screen name="Results" component={ResultsScreen} />
     </Stack.Navigator>
