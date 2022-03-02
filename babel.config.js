@@ -4,6 +4,7 @@ module.exports = function (api) {
   return {
     presets: ['module:metro-react-native-babel-preset'],
     plugins: [
+      require.resolve('react-native-reanimated/plugin'),
       [
         require.resolve('babel-plugin-module-resolver'),
         {
@@ -43,7 +44,7 @@ module.exports = function (api) {
           moduleName: '@env',
           path: '.env',
           blacklist: null,
-          whitelist: ['API_KEY'],
+          whitelist: ['API_KEY', 'GOOGLE_API'],
           safe: false,
           allowUndefined: true,
         },
