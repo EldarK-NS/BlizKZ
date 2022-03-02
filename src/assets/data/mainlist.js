@@ -12,7 +12,7 @@ export const filterItemsList = [
     title: 'Транспорт',
     descr: 'поиск транспорта',
     icon: 'truck-outline',
-    mainPath: 'Transport',
+    mainPath: 'Transports',
     screen: 'Form',
   },
   {

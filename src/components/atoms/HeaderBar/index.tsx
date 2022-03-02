@@ -43,7 +43,9 @@ const HeaderBar = ({
       )}
       {type === 'normal' && (
         <View style={styles.container}>
-          <Pressable style={[styles.backButton, {width: '15%'}]}>
+          <Pressable
+            style={[styles.backButton, {width: '15%'}]}
+            onPress={() => navigation.goBack()}>
             <AntDesign name="left" size={24} color={colors.form_background} />
             <TextComponent
               text={nav_title}

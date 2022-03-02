@@ -1,10 +1,25 @@
 import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
+import HeaderBar from 'atoms/HeaderBar';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {TransportsStackNavigatorParamsList} from 'nav/types';
+export interface IResultsScreenProps {
+  navigation: NativeStackNavigationProp<
+    TransportsStackNavigatorParamsList,
+    'Results'
+  >;
+}
 
-const ResultsScreen = () => {
+const ResultsScreen: React.FC<IResultsScreenProps> = ({navigation}) => {
   return (
     <View>
-      <Text>ResultsScreen</Text>
+      <HeaderBar
+        type="normal"
+        navigation={navigation}
+        title={'Transport'}
+        nav_title={'назад'}
+      />
+      ;
     </View>
   );
 };

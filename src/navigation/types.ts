@@ -29,7 +29,7 @@ export type MainScreenNavigatorParamsList = {
   Transports: NavigatorScreenParams<TransportsStackNavigatorParamsList>;
   Auction: NavigatorScreenParams<AuctionStackNavigatorParamsList>;
   Storage: NavigatorScreenParams<StorageStackNavigatorParamsList>;
-  SpecEqupment: NavigatorScreenParams<SpecEqupmentStackNavigatorParamsList>;
+  SpecEquipment: NavigatorScreenParams<SpecEquipmentStackNavigatorParamsList>;
 };
 
 export type CargoStackNavigatorParamsList = {
@@ -48,7 +48,7 @@ export type StorageStackNavigatorParamsList = {
   Form: undefined;
   Results: undefined;
 };
-export type SpecEqupmentStackNavigatorParamsList = {
+export type SpecEquipmentStackNavigatorParamsList = {
   Form: undefined;
   Results: undefined;
 };

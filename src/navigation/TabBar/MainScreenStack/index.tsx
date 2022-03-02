@@ -21,7 +21,7 @@ const MainScreenStack = () => {
       <Stack.Screen name="Transports" component={TransportStack} />
       <Stack.Screen name="Auction" component={AuctionStack} />
       <Stack.Screen name="Storage" component={StorageStack} />
-      <Stack.Screen name="SpecEqupment" component={SpecEquipmentStack} />
+      <Stack.Screen name="SpecEquipment" component={SpecEquipmentStack} />
     </Stack.Navigator>
   );
 };

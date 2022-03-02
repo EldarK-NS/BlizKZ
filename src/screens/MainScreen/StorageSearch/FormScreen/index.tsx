@@ -1,10 +1,24 @@
 import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
+import {NativeStackNavigationProp} from '@react-navigation/native-stack';
+import {StorageStackNavigatorParamsList} from 'nav/types';
+import HeaderBar from 'atoms/HeaderBar';
+export interface IFormScreenProps {
+  navigation: NativeStackNavigationProp<
+    StorageStackNavigatorParamsList,
+    'Form'
+  >;
+}
 
-const FormScreen = () => {
+const FormScreen: React.FC<IFormScreenProps> = ({navigation}) => {
   return (
     <View>
-      <Text>FormScreen</Text>
+      <HeaderBar
+        type="normal"
+        navigation={navigation}
+        title={'Storage'}
+        nav_title={'назад'}
+      />
     </View>
   );
 };
