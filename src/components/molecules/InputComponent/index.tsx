@@ -16,9 +16,10 @@ export interface IInputComponent {
   placeholder: string;
   name: string;
   Style?: ViewStyle;
+  Style_container?: ViewStyle;
+  style_input?: ViewStyle;
   control: any;
   rules: any;
-  wrapperStyle?: ViewStyle;
   secureTextEntry?: boolean;
   secure?: boolean;
   keyboardType?:
@@ -28,6 +29,8 @@ export interface IInputComponent {
     | 'numeric'
     | 'email-address'
     | 'phone-pad';
+  filter_mode?: boolean;
+  filter_title?: string;
 }
 
 const InputComponent = ({
@@ -36,24 +39,38 @@ const InputComponent = ({
   Style,
   control,
   rules = {},
-  wrapperStyle,
   secureTextEntry = false,
   secure,
   keyboardType = 'default',
+  filter_mode,
+  filter_title,
+  Style_container,
+  style_input,
 }: IInputComponent): JSX.Element => {
   const [isSecure, setIsSecure] = useState<boolean>(true);
 
   return (
-    <View style={wrapperStyle}>
+    <View style={[styles.styleWrapper, {...Style_container}]}>
       <Controller
         control={control}
         name={name}
         rules={rules}
         render={({field: {value, onBlur, onChange}, fieldState: {error}}) => (
-          <>
+          <View style={(styles.styleWrapper, {...style_input})}>
+            {filter_mode && (
+              <View style={{height: filter_mode && 20}}>
+                <TextComponent
+                  text={filter_title}
+                  text_color={'second'}
+                  type={'h4'}
+                  font_family={'reg'}
+                  position={'left'}
+                />
+              </View>
+            )}
             <View
               style={[
-                styles.container,
+                styles.input_container,
                 {
                   ...Style,
                   borderColor: error ? colors.red : colors.text_second,
@@ -86,7 +103,7 @@ const InputComponent = ({
                 Style={{marginTop: 5, ...Style}}
               />
             )}
-          </>
+          </View>
         )}
       />
     </View>
@@ -96,17 +113,17 @@ const InputComponent = ({
 export default InputComponent;
 
 const styles = StyleSheet.create({
-  container: {
+  input_container: {
     width: '100%',
     height: 44,
     borderWidth: 0.5,
     borderColor: colors.text_second,
     justifyContent: 'space-between',
     borderRadius: 5,
-    backgroundColor: colors.form_background,
     flexDirection: 'row',
     alignItems: 'center',
   },
+  styleWrapper: {width: '100%', backgroundColor: colors.form_background},
   input: {
     marginLeft: 10,
     backgroundColor: colors.form_background,

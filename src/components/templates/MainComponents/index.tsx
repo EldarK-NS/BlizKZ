@@ -17,6 +17,7 @@ const MainComponent = ({navigation}: IMainComponentProps): JSX.Element => {
           renderItem={({item}) => {
             return (
               <ListItemWithIcon
+                Style={{paddingHorizontal: 16}}
                 icon={item.icon}
                 title={item.title}
                 subtitle={item.descr}

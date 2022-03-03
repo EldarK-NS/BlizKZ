@@ -1,4 +1,4 @@
-import {Pressable, StyleSheet, View} from 'react-native';
+import {Pressable, StyleSheet, View, ViewStyle} from 'react-native';
 import React from 'react';
 import {colors} from 'theme/colors';
 import EntypoIcon from 'react-native-vector-icons/Entypo';
@@ -10,11 +10,18 @@ export interface IItemProps {
   title: string;
   subtitle: string;
   onpress: () => void;
+  Style?: ViewStyle;
 }
 
-const ListItemWithIcon = ({icon, title, subtitle, onpress}: IItemProps) => {
+const ListItemWithIcon = ({
+  icon,
+  title,
+  subtitle,
+  onpress,
+  Style,
+}: IItemProps) => {
   return (
-    <Pressable style={styles.container} onPress={onpress}>
+    <Pressable style={[styles.container, {...Style}]} onPress={onpress}>
       <View style={{width: '10%'}}>
         <MaterialIcon name={icon} color={colors.blue} size={20} />
       </View>

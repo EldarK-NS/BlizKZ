@@ -4,7 +4,6 @@ import Switcher from 'molecules/Switcher';
 import MyButton from 'atoms/MyButton';
 import InputComponent from 'molecules/InputComponent';
 import {useForm} from 'react-hook-form';
-import TextComponent from 'atoms/TextComponent';
 import RulesComponent from 'atoms/RulesComponent';
 import LinkedText from 'atoms/LinkedText';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
@@ -31,7 +30,7 @@ const SigninComponent: React.FC<ISigninComponentProp> = ({navigation}) => {
     if (!company) {
       navigation.navigate('Person');
     } else {
-      navigation.navigate('CompanyFirst');
+      navigation.navigate('CompanyRegistr');
     }
   };
 

@@ -1,10 +1,8 @@
 import {StyleSheet, View} from 'react-native';
-import React, {useContext, useEffect, useState} from 'react';
+import React, {useContext, useState} from 'react';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {AuthNavigatorParamsList} from 'nav/types';
-import DropDown from 'atoms/DropDown';
 import {AppContext} from 'context/App';
-import {toJS} from 'mobx';
 import {observer} from 'mobx-react';
 import InputComponent from 'molecules/InputComponent';
 import {useForm} from 'react-hook-form';

@@ -30,7 +30,6 @@ const styles = StyleSheet.create({
   innerWrapper: {
     width: '100%',
     height: '100%',
-    paddingHorizontal: 16,
     backgroundColor: colors.background,
   },
 });
