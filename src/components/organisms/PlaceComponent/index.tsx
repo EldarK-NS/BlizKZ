@@ -22,6 +22,7 @@ export default function PlaceAutocomplite({
     <View style={styles.container}>
       <GooglePlacesAutocomplete
         placeholder="Откуда"
+        disableScroll
         onPress={(data, details = null) => {
           setStartPlace({id: data.place_id, placeName: data.description});
         }}
@@ -46,6 +47,7 @@ export default function PlaceAutocomplite({
       />
       <GooglePlacesAutocomplete
         placeholder="Куда"
+        disableScroll
         onPress={(data, details = null) => {
           setFinishPlace({id: data.place_id, placeName: data.description});
         }}

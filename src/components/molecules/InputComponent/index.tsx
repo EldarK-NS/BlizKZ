@@ -1,11 +1,4 @@
-import {
-  StyleSheet,
-  Text,
-  View,
-  TextInput,
-  ViewStyle,
-  Pressable,
-} from 'react-native';
+import {StyleSheet, View, TextInput, ViewStyle, Pressable} from 'react-native';
 import React, {useState} from 'react';
 import {Controller} from 'react-hook-form';
 import {colors} from 'theme/colors';
@@ -42,7 +35,7 @@ const InputComponent = ({
   secureTextEntry = false,
   secure,
   keyboardType = 'default',
-  filter_mode,
+  filter_mode = false,
   filter_title,
   Style_container,
   style_input,
@@ -58,10 +51,11 @@ const InputComponent = ({
         render={({field: {value, onBlur, onChange}, fieldState: {error}}) => (
           <View style={(styles.styleWrapper, {...style_input})}>
             {filter_mode && (
-              <View style={{height: filter_mode && 20}}>
+              <View
+                style={{height: filter_mode ? 20 : 'none', marginVertical: 5}}>
                 <TextComponent
                   text={filter_title}
-                  text_color={'second'}
+                  text_color={'text'}
                   type={'h4'}
                   font_family={'reg'}
                   position={'left'}

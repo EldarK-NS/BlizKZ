@@ -69,7 +69,7 @@ const CompanyRegistrComponent: React.FC<ICompanyRegistrComponent> = ({
             setOpen={() => setOpen(!open)}
             handleClick={v => handleClick(v)}
             placeholder={dataType.length ? dataType[0].name : ''}
-            Style={{width: '30%', borderRadius: 5}}
+            Style={{width: '30%', borderRadius: 5, marginRight: 5}}
           />
           <InputComponent
             placeholder={'Название компании'}
@@ -82,8 +82,8 @@ const CompanyRegistrComponent: React.FC<ICompanyRegistrComponent> = ({
                 message: 'Минимальная длина 3 символа!',
               },
             }}
-            Style={{width: '100%', borderRadius: 5}}
-            wrapperStyle={{width: '65%'}}
+            Style={{width: '68%', borderRadius: 5}}
+            // wrapperStyle={{width: '65%'}}
           />
         </View>
         <InputComponent
@@ -98,7 +98,7 @@ const CompanyRegistrComponent: React.FC<ICompanyRegistrComponent> = ({
             },
           }}
           Style={{width: '100%', borderRadius: 5, marginVertical: 5}}
-          wrapperStyle={{width: '100%'}}
+          // wrapperStyle={{width: '100%'}}
           keyboardType={'numeric'}
         />
         <TextComponent
@@ -121,7 +121,7 @@ const CompanyRegistrComponent: React.FC<ICompanyRegistrComponent> = ({
             },
           }}
           Style={{width: '100%', borderRadius: 5, marginVertical: 10}}
-          wrapperStyle={{width: '100%'}}
+          // wrapperStyle={{width: '100%'}}
         />
         <InputComponent
           placeholder={'Эл. адрес'}
@@ -135,7 +135,7 @@ const CompanyRegistrComponent: React.FC<ICompanyRegistrComponent> = ({
             required: 'Введите ваш электронный адрес!',
           }}
           Style={{width: '100%', borderRadius: 5, marginVertical: 10}}
-          wrapperStyle={{width: '100%'}}
+          // wrapperStyle={{width: '100%'}}
           keyboardType={'email-address'}
         />
         <InputComponent
@@ -150,7 +150,7 @@ const CompanyRegistrComponent: React.FC<ICompanyRegistrComponent> = ({
             },
           }}
           Style={{width: '100%', borderRadius: 5, marginVertical: 10}}
-          wrapperStyle={{width: '100%'}}
+          // wrapperStyle={{width: '100%'}}
           keyboardType="phone-pad"
         />
         <TextComponent
@@ -175,7 +175,7 @@ const CompanyRegistrComponent: React.FC<ICompanyRegistrComponent> = ({
             },
           }}
           Style={{width: '100%', borderRadius: 5, marginVertical: 10}}
-          wrapperStyle={{width: '100%'}}
+          // wrapperStyle={{width: '100%'}}
         />
         <InputComponent
           placeholder={'Повторите пароль'}
@@ -193,7 +193,7 @@ const CompanyRegistrComponent: React.FC<ICompanyRegistrComponent> = ({
             },
           }}
           Style={{width: '100%', borderRadius: 5, marginVertical: 10}}
-          wrapperStyle={{width: '100%'}}
+          // wrapperStyle={{width: '100%'}}
         />
         <MyButton
           onpress={handleSubmit(SignUp)}

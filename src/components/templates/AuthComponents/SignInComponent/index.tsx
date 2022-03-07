@@ -50,7 +50,7 @@ const SigninComponent: React.FC<ISigninComponentProp> = ({navigation}) => {
           required: 'Введите номер телефона!',
           minLength: {value: 11, message: 'Номер телефона 7 *** *** ** **'},
         }}
-        wrapperStyle={{marginVertical: 15, width: '100%'}}
+        // wrapperStyle={{marginVertical: 15, width: '100%'}}
       />
       <InputComponent
         placeholder={'Пароль'}
@@ -66,7 +66,8 @@ const SigninComponent: React.FC<ISigninComponentProp> = ({navigation}) => {
             message: 'Минимальная длина пароля 6 знаков!',
           },
         }}
-        wrapperStyle={{marginVertical: 15, width: '100%'}}
+        // wrapperStyle={{marginVertical: 15, width: '100%'}}
+        Style_container={{marginTop: 15}}
       />
       <LinkedText
         first_text={'Забыли пароль?'}
@@ -103,6 +104,6 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
     alignItems: 'center',
-    backgroundColor: colors.background,
+    backgroundColor: colors.form_background,
   },
 });

@@ -1,4 +1,12 @@
-import {StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import {
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+  ViewStyle,
+  Platform,
+  Dimensions,
+} from 'react-native';
 import React, {useCallback, useEffect, useMemo, useRef} from 'react';
 import {BottomSheetModal, BottomSheetModalProvider} from '@gorhom/bottom-sheet';
 import {colors} from 'theme/colors';
@@ -6,14 +14,19 @@ import {colors} from 'theme/colors';
 export interface IMyBottomSheetProp {
   children: React.ReactNode;
   open: boolean;
+  Style?: ViewStyle;
 }
 
-const MyBottomSheet = ({children, open}: IMyBottomSheetProp): JSX.Element => {
+const MyBottomSheet = ({
+  children,
+  open,
+  Style,
+}: IMyBottomSheetProp): JSX.Element => {
   // ref
   const bottomSheetModalRef = useRef<BottomSheetModal>(null);
 
   // variables
-  const snapPoints = useMemo(() => ['90%'], []);
+  const snapPoints = useMemo(() => ['98%'], []);
 
   useEffect(() => {
     if (open) {
@@ -30,23 +43,19 @@ const MyBottomSheet = ({children, open}: IMyBottomSheetProp): JSX.Element => {
   }, []);
 
   return (
-    <View style={styles.container}>
-      <BottomSheetModalProvider>
-        <View style={styles.container}>
-          <BottomSheetModal
-            ref={bottomSheetModalRef}
-            index={0}
-            snapPoints={snapPoints}>
-            <View style={styles.contentContainer}>{children}</View>
-            <TouchableOpacity
-              onPress={handleSheetChanges}
-              style={styles.confirm}>
-              <Text style={styles.buttonText}>ПОДТВЕРДИТЬ</Text>
-            </TouchableOpacity>
-          </BottomSheetModal>
-        </View>
-      </BottomSheetModalProvider>
-    </View>
+    <BottomSheetModalProvider>
+      <View style={styles.container}>
+        <BottomSheetModal
+          ref={bottomSheetModalRef}
+          index={0}
+          snapPoints={snapPoints}>
+          <View style={styles.contentContainer}>{children}</View>
+          <TouchableOpacity onPress={handleSheetChanges} style={styles.confirm}>
+            <Text style={styles.buttonText}>ПОДТВЕРДИТЬ</Text>
+          </TouchableOpacity>
+        </BottomSheetModal>
+      </View>
+    </BottomSheetModalProvider>
   );
 };
 
@@ -54,8 +63,8 @@ export default MyBottomSheet;
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     backgroundColor: '#ffffff',
+    width: '100%',
   },
   bottomSheet: {
     borderTopWidth: 1,
@@ -66,7 +75,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   confirm: {
-    marginBottom: 100,
+    marginBottom: Dimensions.get('window').height * 0.25,
     alignSelf: 'center',
     width: 300,
     height: 50,

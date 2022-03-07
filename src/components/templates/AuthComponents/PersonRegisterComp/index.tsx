@@ -63,7 +63,7 @@ const PersonRegister: React.FC<IPersonRegister> = ({navigation}) => {
             },
           }}
           Style={{width: '100%', borderRadius: 5, marginVertical: 10}}
-          wrapperStyle={{width: '100%'}}
+          // wrapperStyle={{width: '100%'}}
         />
         <InputComponent
           placeholder={'Эл. адрес'}
@@ -77,7 +77,7 @@ const PersonRegister: React.FC<IPersonRegister> = ({navigation}) => {
             required: 'Введите ваш электронный адрес!',
           }}
           Style={{width: '100%', borderRadius: 5, marginVertical: 10}}
-          wrapperStyle={{width: '100%'}}
+          // wrapperStyle={{width: '100%'}}
           keyboardType={'email-address'}
         />
         <InputComponent
@@ -92,7 +92,7 @@ const PersonRegister: React.FC<IPersonRegister> = ({navigation}) => {
             },
           }}
           Style={{width: '100%', borderRadius: 5, marginVertical: 10}}
-          wrapperStyle={{width: '100%'}}
+          // wrapperStyle={{width: '100%'}}
           keyboardType="phone-pad"
         />
         <TextComponent
@@ -117,7 +117,7 @@ const PersonRegister: React.FC<IPersonRegister> = ({navigation}) => {
             },
           }}
           Style={{width: '100%', borderRadius: 5, marginVertical: 10}}
-          wrapperStyle={{width: '100%'}}
+          // wrapperStyle={{width: '100%'}}
         />
         <InputComponent
           placeholder={'Повторите пароль'}
@@ -135,7 +135,7 @@ const PersonRegister: React.FC<IPersonRegister> = ({navigation}) => {
             },
           }}
           Style={{width: '100%', borderRadius: 5, marginVertical: 10}}
-          wrapperStyle={{width: '100%'}}
+          // wrapperStyle={{width: '100%'}}
         />
         <MyButton
           onpress={handleSubmit(SignUp)}
