@@ -43,22 +43,22 @@ export default class AuthMock extends NetAPI {
       );
     }
   }
-  public async personRegistration(
-    data: IRegisterCompany,
-  ): RequestPromise<IAuthResponse> {
-    try {
-      const response = await this.post(this.registerPersonUrl, {
-        fullname: data.fullName,
-        phone: data.phone,
-        email: data.email,
-        password: data.password,
-      });
-      return response.data;
-    } catch (e: any) {
-      console.log(JSON.stringify(e.response, null, 2));
-      return this.getFirstError(
-        e.response.data.errors || e.response.data.error,
-      );
-    }
-  }
+  // public async personRegistration(
+  //   data: IRegisterCompany,
+  // ): RequestPromise<IAuthResponse> {
+  //   try {
+  //     const response = await this.get(this.registerPersonUrl, {
+  //       fullname: data.fullName,
+  //       phone: data.phone,
+  //       email: data.email,
+  //       password: data.password,
+  //     });
+  //     return response.data;
+  //   } catch (e: any) {
+  //     console.log(JSON.stringify(e.response, null, 2));
+  //     return this.getFirstError(
+  //       e.response.data.errors || e.response.data.error,
+  //     );
+  //   }
+  // }
 }

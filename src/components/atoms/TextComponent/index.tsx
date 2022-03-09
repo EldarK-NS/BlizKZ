@@ -11,7 +11,7 @@ type TextColor = 'text' | 'second' | 'light' | 'blue' | 'error';
 type Position = 'center' | 'left' | 'right';
 
 export interface ITextComponent {
-  text: string | undefined;
+  text: string | Date | undefined;
   text_color: TextColor;
   type: VariantType;
   Style?: ViewStyle;

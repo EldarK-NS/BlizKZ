@@ -6,7 +6,7 @@ export interface Response<D> {
 
 export type RequestPromise<D> = Promise<Response<D> | D | {error: string}>;
 
-export interface IAuthResponse {
-  access_token: 'string';
-  token_type: 'string';
-}
+// export interface IAuthResponse {
+//   access_token: 'string';
+//   token_type: 'string';
+// }

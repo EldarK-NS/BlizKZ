@@ -1,5 +1,5 @@
-import {LogBox, StyleSheet, View} from 'react-native';
-import React, {useEffect, useState} from 'react';
+import {LogBox, StyleSheet, View, YellowBox} from 'react-native';
+import React, {useContext, useEffect, useState} from 'react';
 import MyBottomSheet from 'atoms/MyBottomSheet';
 import PlaceAutocomplite from 'organisms/PlaceComponent';
 import InputPlaceComponent from 'atoms/InputPlaceComponent';
@@ -8,6 +8,12 @@ import TextComponent from 'atoms/TextComponent';
 import {useForm} from 'react-hook-form';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import MyButton from 'atoms/MyButton';
+import DateComponent from 'atoms/DateComponent';
+import {colors} from 'theme/colors';
+import {AppContext} from 'context/App';
+import {observer} from 'mobx-react';
+import {toJS} from 'mobx';
+import DropDown from 'atoms/DropDown';
 
 interface IPlces {
   id: string | null;
@@ -15,17 +21,34 @@ interface IPlces {
 }
 
 const CargoSearchForm = () => {
+  //!Store
   const {
-    control,
-    handleSubmit,
-    formState: {errors},
-  } = useForm();
-
+    stores: {transportTypesStore},
+  } = useContext(AppContext);
+  //!Warning
   useEffect(() => {
     LogBox.ignoreLogs(['VirtualizedLists should never be nested']);
+    transportTypesStore.getList();
   }, []);
 
+  //!TransportType
+  const [dropdownOpen, setDropdownOpen] = useState<boolean>(false);
+  const [typeId, setTypeId] = useState<number>(1);
+  const [showModal, setShowModal] = useState<boolean>(true);
+
+  const handleClick = (v: number) => {
+    setTypeId(v);
+    setDropdownOpen(!dropdownOpen);
+    setShowModal(true);
+  };
+
+  //! set Date
+  const [inputStart, setInputStart] = useState<null | Date>(null);
+  const [inputFinish, setInputFinish] = useState<null | Date>(null);
+
+  //!OpenBottomSheet
   const [openModal, setOpenModal] = useState<boolean>(false);
+
   //!StartPlace
   const [startPlace, setStartPlace] = useState<IPlces>({
     id: null,
@@ -37,9 +60,19 @@ const CargoSearchForm = () => {
     placeName: null,
   });
 
+  //!Control
+  const {
+    control,
+    handleSubmit,
+    formState: {errors},
+  } = useForm();
+
+  //!ConfirmButton
   const confirmFilter = (data: any) => {
     console.log(data);
   };
+
+  console.log('showModal', showModal);
 
   return (
     <View style={styles.container}>
@@ -48,18 +81,59 @@ const CargoSearchForm = () => {
         enableAutomaticScroll={true}
         extraScrollHeight={10}>
         <InputPlaceComponent
-          onpress={() => setOpenModal(!openModal)}
+          onpress={() => {
+            setOpenModal(!openModal), setShowModal(true);
+          }}
           placeFrom={startPlace.placeName ? startPlace.placeName : ''}
           placeTo={finishPlace.placeName ? finishPlace.placeName : ''}
         />
         <TextComponent
-          text={'Транспорт, Количество мест'}
+          text={'Дата, Транспорт, Количество мест'}
           text_color={'second'}
           type={'h4'}
           font_family={'semi'}
           position={'center'}
           Style={{paddingVertical: 5}}
         />
+        <View style={styles.rowBackground}>
+          <DateComponent
+            setInputStart={setInputStart}
+            setInputFinish={setInputFinish}
+            inputStart={inputStart}
+            inputFinish={inputFinish}
+            placeholderStart={'Дата погрузки'}
+            placeholderFinish={'Дата выгрузки'}
+          />
+        </View>
+        <View
+          style={[styles.rowBackground, {zIndex: showModal === true ? 0 : 3}]}>
+          <TextComponent
+            text={'Тип транспорта'}
+            text_color={'text'}
+            type={'h4'}
+            font_family={'reg'}
+            position={'left'}
+            Style={{marginLeft: 16, marginTop: 10}}
+          />
+          <DropDown
+            data={toJS(transportTypesStore.itemsList)}
+            open={dropdownOpen}
+            setOpen={() => {
+              setDropdownOpen(!dropdownOpen), setShowModal(false);
+            }}
+            handleClick={v => handleClick(v)}
+            placeholder={
+              toJS(transportTypesStore.itemsList).length
+                ? toJS(transportTypesStore.itemsList)[0].name
+                : 'Выбрать тип транспорта'
+            }
+            Style={{
+              paddingHorizontal: 16,
+              marginTop: 5,
+              alignItems: 'center',
+            }}
+          />
+        </View>
         <View style={styles.inputContainer}>
           <InputComponent
             placeholder={'от'}
@@ -219,6 +293,7 @@ const CargoSearchForm = () => {
           background={'blue'}
           Style={{marginVertical: 20, width: '90%', alignSelf: 'center'}}
         />
+
         <MyBottomSheet open={openModal}>
           <PlaceAutocomplite
             setStartPlace={(v: IPlces) => setStartPlace(v)}
@@ -230,7 +305,7 @@ const CargoSearchForm = () => {
   );
 };
 
-export default CargoSearchForm;
+export default observer(CargoSearchForm);
 
 const styles = StyleSheet.create({
   container: {
@@ -239,5 +314,9 @@ const styles = StyleSheet.create({
   inputContainer: {
     flexDirection: 'row',
     alignItems: 'center',
+  },
+  rowBackground: {
+    width: '100%',
+    backgroundColor: colors.form_background,
   },
 });

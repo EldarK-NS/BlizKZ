@@ -26,7 +26,7 @@ const MyBottomSheet = ({
   const bottomSheetModalRef = useRef<BottomSheetModal>(null);
 
   // variables
-  const snapPoints = useMemo(() => ['98%'], []);
+  const snapPoints = useMemo(() => ['90%'], []);
 
   useEffect(() => {
     if (open) {

@@ -88,7 +88,7 @@ const styles = StyleSheet.create({
   },
   input: {
     width: '100%',
-    height: 60,
+    height: 50,
     justifyContent: 'space-between',
     backgroundColor: colors.form_background,
     flexDirection: 'row',

@@ -1,21 +1,33 @@
-import {string} from 'prop-types';
 export interface ISigninData {
   password: string | number;
   phone: string | number;
 }
-
 export interface IRegisterPerson {
+  success: boolean;
+  token: string;
   fullName: string;
-  phone: string | number;
+  phone: string;
   email: string;
-  password: string | number;
+  user_type: {
+    '2': string;
+  };
+  user_type_id: number;
 }
 export interface IRegisterCompany {
-  fullName: string;
-  phone: string | number;
+  success: boolean;
+  token: string;
   email: string;
-  password: string | number;
+  phone: string;
   companyName: string;
-  companyType: number;
+  companyType: string;
+  fullName: string;
   bin: number;
+}
+export interface ILogin {
+  success: boolean;
+  token: string;
+  email: string;
+  phone: string;
+  fullName: string;
+  message: string;
 }

@@ -1,4 +1,4 @@
-import {Pressable, StyleSheet, Text, View, ViewStyle} from 'react-native';
+import {Pressable, StyleSheet, View, ViewStyle} from 'react-native';
 import React, {useState} from 'react';
 import {colors} from 'theme/colors';
 import Icon from 'react-native-vector-icons/Entypo';
@@ -53,6 +53,7 @@ const DropDown = ({
                   type={'h3'}
                   font_family={'reg'}
                   position={'center'}
+                  Style={{marginVertical: 5}}
                 />
               </Pressable>
             );
