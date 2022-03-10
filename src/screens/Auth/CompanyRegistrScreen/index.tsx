@@ -1,5 +1,5 @@
 import {Pressable, StyleSheet, View} from 'react-native';
-import React from 'react';
+import React, {useContext} from 'react';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {AuthNavigatorParamsList} from 'nav/types';
 import {colors} from 'theme/colors';

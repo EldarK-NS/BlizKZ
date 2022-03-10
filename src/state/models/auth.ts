@@ -22,6 +22,7 @@ export interface IRegisterCompany {
   companyType: string;
   fullName: string;
   bin: number;
+  message: string;
 }
 export interface ILogin {
   success: boolean;

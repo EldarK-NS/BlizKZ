@@ -1,5 +1,5 @@
 import {StyleSheet, View} from 'react-native';
-import React, {useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import Switcher from 'molecules/Switcher';
 import MyButton from 'atoms/MyButton';
 import InputComponent from 'molecules/InputComponent';
@@ -9,6 +9,8 @@ import LinkedText from 'atoms/LinkedText';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {AuthNavigatorParamsList} from 'nav/types';
 import {colors} from 'theme/colors';
+import {AppContext} from 'context/App';
+import {observer} from 'mobx-react';
 
 export interface ISigninComponentProp {
   navigation: NativeStackNavigationProp<AuthNavigatorParamsList, 'SignIn'>;
@@ -22,8 +24,13 @@ const SigninComponent: React.FC<ISigninComponentProp> = ({navigation}) => {
     formState: {errors},
   } = useForm();
 
+  const {
+    stores: {registartionStore, sessionStore},
+  } = useContext(AppContext);
+
   const SignIn = (data: any) => {
     console.log(data);
+    registartionStore.login(data.phone, data.password);
   };
 
   const goToRegistration = () => {
@@ -97,7 +104,7 @@ const SigninComponent: React.FC<ISigninComponentProp> = ({navigation}) => {
   );
 };
 
-export default SigninComponent;
+export default observer(SigninComponent);
 
 const styles = StyleSheet.create({
   container: {

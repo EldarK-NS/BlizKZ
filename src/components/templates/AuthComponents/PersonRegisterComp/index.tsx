@@ -1,5 +1,5 @@
 import {StyleSheet, View} from 'react-native';
-import React, {useContext, useState} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {AuthNavigatorParamsList} from 'nav/types';
 import {AppContext} from 'context/App';
@@ -11,6 +11,7 @@ import MyButton from 'atoms/MyButton';
 import LinkedText from 'atoms/LinkedText';
 import RulesComponent from 'atoms/RulesComponent';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
+import {toJS} from 'mobx';
 
 const EMAIL_REGEX =
   /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/;
@@ -29,11 +30,17 @@ const PersonRegister: React.FC<IPersonRegister> = ({navigation}) => {
   } = useForm();
   const pwd = watch('password');
   const {
-    stores: {companyTypesStore},
+    stores: {registartionStore, sessionStore},
   } = useContext(AppContext);
 
   const SignUp = (data: any) => {
     console.log('data', data);
+    registartionStore.personSubmit(
+      data.user_name,
+      data.phone,
+      data.email,
+      data.password,
+    );
   };
 
   const goToSignIn = () => {
@@ -63,7 +70,6 @@ const PersonRegister: React.FC<IPersonRegister> = ({navigation}) => {
             },
           }}
           Style={{width: '100%', borderRadius: 5, marginVertical: 10}}
-          // wrapperStyle={{width: '100%'}}
         />
         <InputComponent
           placeholder={'Эл. адрес'}

@@ -36,7 +36,7 @@ const CompanyRegistrComponent: React.FC<ICompanyRegistrComponent> = ({
   } = useForm();
   const pwd = watch('password');
   const {
-    stores: {companyTypesStore},
+    stores: {companyTypesStore, registartionStore},
   } = useContext(AppContext);
 
   useEffect(() => {
@@ -52,7 +52,15 @@ const CompanyRegistrComponent: React.FC<ICompanyRegistrComponent> = ({
   const dataType = toJS(companyTypesStore.itemsList);
 
   const SignUp = (data: any) => {
-    console.log('data', data);
+    registartionStore.companySubmit(
+      data.user_name,
+      data.phone,
+      data.email,
+      data.password,
+      data.company_name,
+      typeId,
+      data.bin,
+    );
   };
 
   const goToSignIn = () => {
@@ -83,7 +91,6 @@ const CompanyRegistrComponent: React.FC<ICompanyRegistrComponent> = ({
               },
             }}
             Style={{width: '68%', borderRadius: 5}}
-            // wrapperStyle={{width: '65%'}}
           />
         </View>
         <InputComponent
@@ -98,7 +105,6 @@ const CompanyRegistrComponent: React.FC<ICompanyRegistrComponent> = ({
             },
           }}
           Style={{width: '100%', borderRadius: 5, marginVertical: 5}}
-          // wrapperStyle={{width: '100%'}}
           keyboardType={'numeric'}
         />
         <TextComponent
@@ -121,7 +127,6 @@ const CompanyRegistrComponent: React.FC<ICompanyRegistrComponent> = ({
             },
           }}
           Style={{width: '100%', borderRadius: 5, marginVertical: 10}}
-          // wrapperStyle={{width: '100%'}}
         />
         <InputComponent
           placeholder={'Эл. адрес'}
