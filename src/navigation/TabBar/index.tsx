@@ -5,10 +5,10 @@ import {TabNavigatorParamsList} from 'nav/types';
 import Feather from 'react-native-vector-icons/Feather';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import InWork from 'screens/InWork';
-import AddAdvert from 'screens/AddAdvert';
 import ChatScreen from 'screens/ChatScreen';
 import ProfileScreen from 'screens/ProfileScreen';
 import MainScreenStack from './MainScreenStack';
+import AddPostStack from './AddPostStack';
 
 const Tab = createBottomTabNavigator<TabNavigatorParamsList>();
 
@@ -66,7 +66,7 @@ const TabBarStack = (): JSX.Element => {
           }}
         />
         <Tab.Screen
-          component={AddAdvert}
+          component={AddPostStack}
           name={'AddAdvert'}
           options={{
             headerShown: false,

@@ -1,11 +1,11 @@
 import {NetAPI} from '..';
-import {ICompanyType} from 'models/company_type';
+import {IAuxiliaryType} from 'models/auxiliary_type';
 import {RequestPromise} from 'models/main';
 
 export default class CompanyTypes extends NetAPI {
   url_list = '/getCompanyTypes';
 
-  async getCompanyTypesList(): RequestPromise<ICompanyType[]> {
+  async getCompanyTypesList(): RequestPromise<IAuxiliaryType[]> {
     try {
       const response = await this.get(`${this.url_list}`);
       return response.data;

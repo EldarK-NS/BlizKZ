@@ -8,7 +8,7 @@ import TextComponent from 'atoms/TextComponent';
 export interface IItemProps {
   icon: string;
   title: string;
-  subtitle: string;
+  subtitle?: string;
   onpress: () => void;
   Style?: ViewStyle;
 }
@@ -33,13 +33,15 @@ const ListItemWithIcon = ({
           font_family={'med'}
           position={'left'}
         />
-        <TextComponent
-          text={subtitle}
-          text_color={'second'}
-          type={'h4'}
-          font_family={'reg'}
-          position={'left'}
-        />
+        {subtitle && (
+          <TextComponent
+            text={subtitle}
+            text_color={'second'}
+            type={'h4'}
+            font_family={'reg'}
+            position={'left'}
+          />
+        )}
       </View>
       <View style={{width: '5%'}}>
         <EntypoIcon name="chevron-right" size={15} color={colors.text_second} />

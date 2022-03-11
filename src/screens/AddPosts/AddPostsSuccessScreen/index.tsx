@@ -1,14 +1,14 @@
 import {StyleSheet, Text, View} from 'react-native';
 import React from 'react';
 
-const AddAdvert = () => {
+const AddPostsSuccessScreen = () => {
   return (
     <View>
-      <Text>AddAdvert</Text>
+      <Text>AddPostsSuccessScreen</Text>
     </View>
   );
 };
 
-export default AddAdvert;
+export default AddPostsSuccessScreen;
 
 const styles = StyleSheet.create({});

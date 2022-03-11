@@ -9,7 +9,8 @@ import TransportTypesStore from 'store/TransportTypesStore';
 import AuthMock from 'repositories/AuthMock';
 import RegistrationStore from 'store/RegistrationStore';
 import SessionStore from 'store/SessionStore';
-
+import AuxiliaryDataMock from 'repositories/AuxiliaryDataMock';
+import AuxiliaryDataStore from 'store/AuxiliaryDataStore';
 const services = {
   httpClient: HttpClient,
   localClient: new LocalClient(),
@@ -21,7 +22,9 @@ const repositories = {
   companyTypes: new CompanyTypes(services.httpClient),
   transportTypes: new TransportTypes(services.httpClient),
   authMock: new AuthMock(services.httpClient),
+  auxiliaryMock: new AuxiliaryDataMock(services.httpClient),
 };
+
 const loadingStore = new LoadingStore();
 const sessionStore = new SessionStore(services.localClient);
 const stores = {
@@ -37,6 +40,10 @@ const stores = {
   registartionStore: new RegistrationStore(
     repositories.authMock,
     sessionStore,
+    loadingStore,
+  ),
+  auxiliaryStore: new AuxiliaryDataStore(
+    repositories.auxiliaryMock,
     loadingStore,
   ),
 };

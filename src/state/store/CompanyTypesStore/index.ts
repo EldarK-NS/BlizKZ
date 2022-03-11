@@ -1,11 +1,11 @@
 import {action, makeObservable, observable} from 'mobx';
 import BaseStore from 'store/BaseStore';
 import CompanyTypes from 'repositories/CompanyTypes';
-import {ICompanyType} from 'models/company_type';
+import {IAuxiliaryType} from 'models/auxiliary_type';
 import LoadingStore from 'store/LoadingStore';
 
 export default class CompanyTypesStore extends BaseStore {
-  itemsList: ICompanyType[] = [];
+  itemsList: IAuxiliaryType[] = [];
   constructor(
     private companyTypes: CompanyTypes,
     private loadingStore: LoadingStore,

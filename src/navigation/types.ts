@@ -23,6 +23,12 @@ export type RootNavigatorParamsList = {
   TabBar: TabNavigatorParamsList;
 };
 
+export type AddPostScreenNavigatorParamsList = {
+  CategoryPosts: undefined;
+  AddPostForm: {formType: string};
+  AddPostSuccess: undefined;
+};
+
 export type MainScreenNavigatorParamsList = {
   Home: undefined;
   Cargo: NavigatorScreenParams<CargoStackNavigatorParamsList>;

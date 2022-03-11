@@ -1,4 +1,4 @@
-export interface ICompanyType {
+export interface IAuxiliaryType {
   id: number;
   name: string;
   created_at: Date | null;
