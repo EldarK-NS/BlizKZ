@@ -5,22 +5,23 @@ import {
   View,
   ViewStyle,
   Dimensions,
+  ScrollView,
 } from 'react-native';
 import React, {useCallback, useEffect, useMemo, useRef} from 'react';
 import {BottomSheetModal, BottomSheetModalProvider} from '@gorhom/bottom-sheet';
 import {colors} from 'theme/colors';
 
-export interface IMyBottomSheetProp {
+export interface IBottomSheetForCheckBoxProp {
   children: React.ReactNode;
   open: boolean;
   Style?: ViewStyle;
 }
 
-const MyBottomSheet = ({
+const BottomSheetForCheckBox = ({
   children,
   open,
   Style,
-}: IMyBottomSheetProp): JSX.Element => {
+}: IBottomSheetForCheckBoxProp): JSX.Element => {
   // ref
   const bottomSheetModalRef = useRef<BottomSheetModal>(null);
 
@@ -58,7 +59,7 @@ const MyBottomSheet = ({
   );
 };
 
-export default MyBottomSheet;
+export default BottomSheetForCheckBox;
 
 const styles = StyleSheet.create({
   container: {

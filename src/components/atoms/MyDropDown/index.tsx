@@ -12,6 +12,10 @@ export interface IDropDown {
   name: string;
   control: any;
   rules: any;
+  with_title?: boolean;
+  title?: string;
+  additType?: (v: string) => void;
+  layoutFunc?: (v: string) => void;
 }
 
 const MyDropDown = ({
@@ -21,23 +25,50 @@ const MyDropDown = ({
   name,
   control,
   rules = {},
+  with_title = false,
+  title,
+  additType,
+  layoutFunc,
 }: IDropDown): JSX.Element => {
   const [itemName, setItemName] = useState<string>('');
   const [open, setOpen] = useState<boolean>(false);
+
   return (
-    <View {...Style}>
+    <View style={{alignItems: 'center', ...Style}}>
       <Controller
         name={name}
         control={control}
         rules={rules}
         render={({field: {onChange}, fieldState: {error}}) => (
           <>
+            {with_title && (
+              <View
+                style={{
+                  height: with_title ? 20 : 'none',
+                  marginVertical: 5,
+                  alignSelf: 'flex-start',
+                }}>
+                <TextComponent
+                  text={title}
+                  text_color={'text'}
+                  type={'h4'}
+                  font_family={'reg'}
+                  position={'left'}
+                />
+              </View>
+            )}
             <Pressable
-              onPress={() => setOpen(!open)}
-              style={styles.titleWrapper}>
+              onPress={() => {
+                setOpen(true);
+                if (layoutFunc) layoutFunc(name);
+              }}
+              style={[
+                styles.titleWrapper,
+                {borderColor: !error?.message ? colors.lightGrey : 'red'},
+              ]}>
               <TextComponent
                 text={itemName.length ? itemName : placeholder}
-                text_color={'text'}
+                text_color={itemName ? 'text' : 'second'}
                 type={'h4'}
                 font_family={'reg'}
                 position={'center'}
@@ -52,7 +83,12 @@ const MyDropDown = ({
                 type={'h4'}
                 font_family={'reg'}
                 position={'left'}
-                Style={{marginTop: 3, marginLeft: 10, ...Style}}
+                Style={{
+                  marginTop: 3,
+                  alignItems: 'flex-start',
+                  alignSelf: 'flex-start',
+                  ...Style,
+                }}
               />
             )}
             {open && (
@@ -65,6 +101,12 @@ const MyDropDown = ({
                         setItemName(item.name);
                         onChange(item.id);
                         setOpen(false);
+                        if (additType) {
+                          additType(item.id);
+                        }
+                        if (layoutFunc) {
+                          layoutFunc('');
+                        }
                       }}
                       key={item.id}>
                       <TextComponent
@@ -97,7 +139,7 @@ const styles = StyleSheet.create({
     width: '100%',
     height: 44,
     borderWidth: 1,
-    borderColor: colors.lightGrey,
+
     paddingVertical: 5,
     paddingLeft: 10,
     borderRadius: 5,
@@ -108,7 +150,7 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: colors.lightGrey,
     position: 'absolute',
-    top: 50,
+    top: 80,
     backgroundColor: colors.form_background,
   },
   itemWrapper: {

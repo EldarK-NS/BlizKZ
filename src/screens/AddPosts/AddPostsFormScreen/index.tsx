@@ -34,7 +34,7 @@ const AddPostsFormScreen: React.FC<IAddPostsFormScreenProps> = ({
         title="Добавить груз"
       />
       {formType === 'Cargo' ? (
-        <CargoForm />
+        <CargoForm navigation={navigation} route={route} />
       ) : formType === 'Transports' ? (
         <TransportForm />
       ) : formType === 'Storage' ? (
@@ -54,6 +54,6 @@ const styles = StyleSheet.create({
   container: {
     width: '100%',
     height: '100%',
-    backgroundColor: colors.form_background,
+    backgroundColor: colors.background,
   },
 });

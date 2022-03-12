@@ -94,7 +94,7 @@ const InputComponent = ({
                 type={'h4'}
                 font_family={'reg'}
                 position={'left'}
-                Style={{marginTop: 5, ...Style}}
+                Style={{marginTop: 5, marginLeft: 10, ...Style}}
               />
             )}
           </View>
