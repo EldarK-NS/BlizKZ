@@ -73,7 +73,8 @@ export default function PlaceAutocomplite({
 
 const styles = StyleSheet.create({
   container: {
-    height: '100%',
+    width: 300,
+    backgroundColor: 'red',
   },
   visibleContainer: {
     width: Dimensions.get('window').width - 20,

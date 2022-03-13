@@ -49,44 +49,42 @@ const CheckBoxForm = ({
         name={name}
         render={({field: {onChange}}) => {
           return (
-            <View>
-              <FlatList
-                nestedScrollEnabled={true}
-                data={data}
-                numColumns={2}
-                keyExtractor={item => item.id.toString()}
-                renderItem={({item}) => (
-                  <View style={styles.row}>
-                    <Pressable
-                      onPress={() => {
-                        fillArr(item.id);
-                        onChange(itemsArr);
-                        setIsActive(!isActive);
-                      }}>
-                      <View
-                        style={[
-                          styles.circle,
-                          {
-                            backgroundColor: itemsArr.includes(item.id)
-                              ? colors.blue
-                              : colors.form_background,
-                          },
-                        ]}
-                      />
-                    </Pressable>
-                    <View style={{width: '80%'}}>
-                      <TextComponent
-                        text={item.name}
-                        text_color={'text'}
-                        type={'h3'}
-                        font_family={'reg'}
-                        position={'left'}
-                      />
-                    </View>
+            <FlatList
+              nestedScrollEnabled={true}
+              data={data}
+              numColumns={2}
+              keyExtractor={item => item.id.toString()}
+              renderItem={({item}) => (
+                <View style={styles.row}>
+                  <Pressable
+                    onPress={() => {
+                      fillArr(item.id);
+                      onChange(itemsArr);
+                      setIsActive(!isActive);
+                    }}>
+                    <View
+                      style={[
+                        styles.circle,
+                        {
+                          backgroundColor: itemsArr.includes(item.id)
+                            ? colors.blue
+                            : colors.form_background,
+                        },
+                      ]}
+                    />
+                  </Pressable>
+                  <View style={{width: '90%'}}>
+                    <TextComponent
+                      text={item.name}
+                      text_color={'text'}
+                      type={'h4'}
+                      font_family={'reg'}
+                      position={'left'}
+                    />
                   </View>
-                )}
-              />
-            </View>
+                </View>
+              )}
+            />
           );
         }}
       />
@@ -98,13 +96,13 @@ export default CheckBoxForm;
 
 const styles = StyleSheet.create({
   container: {
-    width: '90%',
+    width: '100%',
     borderWidth: 1,
     borderColor: colors.text_second,
     padding: 15,
     borderRadius: 15,
     backgroundColor: colors.form_background,
-    marginVertical: 15,
+    marginVertical: 10,
 
     shadowColor: '#000',
     shadowOffset: {

@@ -10,23 +10,25 @@ import {
 import React, {useCallback, useEffect, useMemo, useRef} from 'react';
 import {BottomSheetModal, BottomSheetModalProvider} from '@gorhom/bottom-sheet';
 import {colors} from 'theme/colors';
+import {ScrollView} from 'react-native-gesture-handler';
+import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 
-export interface IMyBottomSheetProp {
+export interface ICheckBoxBottomSheetProp {
   children: React.ReactNode;
   open: boolean;
   Style?: ViewStyle;
 }
 
-const MyBottomSheet = ({
+const CheckBoxBottomSheet = ({
   children,
   open,
   Style,
-}: IMyBottomSheetProp): JSX.Element => {
+}: ICheckBoxBottomSheetProp): JSX.Element => {
   // ref
   const bottomSheetModalRef = useRef<BottomSheetModal>(null);
 
   // variables
-  const snapPoints = useMemo(() => ['90%'], []);
+  const snapPoints = useMemo(() => ['60%'], []);
 
   useEffect(() => {
     if (open) {
@@ -52,22 +54,31 @@ const MyBottomSheet = ({
           ref={bottomSheetModalRef}
           index={0}
           snapPoints={snapPoints}>
-          <View style={styles.contentContainer}>{children}</View>
-          <TouchableOpacity onPress={handleSheetChanges} style={styles.confirm}>
-            <Text style={styles.buttonText}>ПОДТВЕРДИТЬ</Text>
-          </TouchableOpacity>
+          <KeyboardAwareScrollView
+            enableOnAndroid={true}
+            enableAutomaticScroll={true}
+            style={{flex: 1}}>
+            <View style={[styles.contentContainer, {alignItems: 'center'}]}>
+              {children}
+            </View>
+            <TouchableOpacity
+              onPress={handleSheetChanges}
+              style={styles.confirm}>
+              <Text style={styles.buttonText}>ПОДТВЕРДИТЬ</Text>
+            </TouchableOpacity>
+          </KeyboardAwareScrollView>
         </BottomSheetModal>
       </View>
     </BottomSheetModalProvider>
   );
 };
 
-export default MyBottomSheet;
+export default CheckBoxBottomSheet;
 
 const styles = StyleSheet.create({
   container: {
     backgroundColor: '#ffffff',
-    width: '100%',
+    flex: 1,
   },
   bottomSheet: {
     borderTopWidth: 1,
@@ -75,10 +86,9 @@ const styles = StyleSheet.create({
     paddingTop: 10,
   },
   contentContainer: {
-    height: Dimensions.get('window').height / 2,
+    height: '94%',
   },
   confirm: {
-    // marginBottom: 200,
     alignSelf: 'center',
     width: 300,
     height: 50,

@@ -1,6 +1,14 @@
-import {LogBox, StyleSheet, View, YellowBox} from 'react-native';
+import {
+  LogBox,
+  Modal,
+  Pressable,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+  YellowBox,
+} from 'react-native';
 import React, {useContext, useEffect, useState} from 'react';
-import MyBottomSheet from 'atoms/MyBottomSheet';
 import PlaceAutocomplite from 'organisms/PlaceComponent';
 import InputPlaceComponent from 'atoms/InputPlaceComponent';
 import InputComponent from 'molecules/InputComponent';
@@ -14,6 +22,7 @@ import {AppContext} from 'context/App';
 import {observer} from 'mobx-react';
 import {toJS} from 'mobx';
 import DropDown from 'atoms/DropDown';
+import Entypo from 'react-native-vector-icons/Entypo';
 
 interface IPlces {
   id: string | null;
@@ -60,6 +69,8 @@ const CargoSearchForm = () => {
     placeName: null,
   });
 
+  console.log('!!!!!!!!', startPlace, finishPlace);
+
   //!Control
   const {
     control,
@@ -72,17 +83,22 @@ const CargoSearchForm = () => {
     console.log(data);
   };
 
+  //!Open modals
+  const [modalPlaceVisible, setModalPlacelVisible] = useState<boolean>(false);
+
   console.log('showModal', showModal);
 
   return (
     <View style={styles.container}>
       <KeyboardAwareScrollView
+        keyboardShouldPersistTaps={'always'}
         enableOnAndroid={true}
         enableAutomaticScroll={true}
         extraScrollHeight={10}>
         <InputPlaceComponent
           onpress={() => {
-            setOpenModal(!openModal), setShowModal(true);
+            setModalPlacelVisible(!modalPlaceVisible);
+            setShowModal(true);
           }}
           placeFrom={startPlace.placeName ? startPlace.placeName : ''}
           placeTo={finishPlace.placeName ? finishPlace.placeName : ''}
@@ -294,12 +310,28 @@ const CargoSearchForm = () => {
           Style={{marginVertical: 20, width: '90%', alignSelf: 'center'}}
         />
 
-        <MyBottomSheet open={openModal}>
-          <PlaceAutocomplite
-            setStartPlace={(v: IPlces) => setStartPlace(v)}
-            setFinishPlace={(v: IPlces) => setFinishPlace(v)}
-          />
-        </MyBottomSheet>
+        <Modal
+          animationType="slide"
+          transparent={true}
+          visible={modalPlaceVisible}
+          onRequestClose={() => {
+            // Alert.alert('Modal has been closed.');
+            setModalPlacelVisible(!modalPlaceVisible);
+          }}>
+          <View style={styles.centeredView}>
+            <View style={styles.modalView}>
+              <PlaceAutocomplite
+                setStartPlace={(v: IPlces) => setStartPlace(v)}
+                setFinishPlace={(v: IPlces) => setFinishPlace(v)}
+              />
+              <TouchableOpacity
+                onPress={() => setModalPlacelVisible(!modalPlaceVisible)}
+                style={[styles.confirm, {position: 'absolute', bottom: 100}]}>
+                <Text style={styles.buttonText}>ПОДТВЕРДИТЬ</Text>
+              </TouchableOpacity>
+            </View>
+          </View>
+        </Modal>
       </KeyboardAwareScrollView>
     </View>
   );
@@ -318,5 +350,40 @@ const styles = StyleSheet.create({
   rowBackground: {
     width: '100%',
     backgroundColor: colors.form_background,
+  },
+  centeredView: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 22,
+  },
+  modalView: {
+    flex: 1,
+    backgroundColor: 'white',
+    borderRadius: 30,
+    padding: 40,
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.5,
+    shadowRadius: 7,
+    elevation: 8,
+  },
+  confirm: {
+    alignSelf: 'center',
+    width: 300,
+    height: 50,
+    backgroundColor: colors.blue,
+    borderRadius: 20,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  buttonText: {
+    color: 'white',
+    fontSize: 17,
+    fontFamily: 'IBMPlexSans-SemiBold',
   },
 });

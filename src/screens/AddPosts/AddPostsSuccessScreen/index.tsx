@@ -1,10 +1,29 @@
 import {StyleSheet, Text, View} from 'react-native';
-import React from 'react';
+import React, {useState} from 'react';
+import PlaceAutocomplite from 'organisms/PlaceComponent';
+
+interface IPlces {
+  id: string | null;
+  placeName: string | null;
+}
 
 const AddPostsSuccessScreen = () => {
+  //!StartPlace
+  const [startPlace, setStartPlace] = useState<IPlces>({
+    id: null,
+    placeName: null,
+  });
+  //!FinishPlace
+  const [finishPlace, setFinishPlace] = useState<IPlces>({
+    id: null,
+    placeName: null,
+  });
   return (
     <View>
-      <Text>AddPostsSuccessScreen</Text>
+      <PlaceAutocomplite
+        setStartPlace={(v: IPlces) => setStartPlace(v)}
+        setFinishPlace={(v: IPlces) => setFinishPlace(v)}
+      />
     </View>
   );
 };

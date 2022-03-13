@@ -5,7 +5,6 @@ import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import CategoryPostsScreen from 'screens/AddPosts/CategoryPostsScreen';
 import AddPostsFormScreen from 'screens/AddPosts/AddPostsFormScreen';
 import AddPostsSuccessScreen from 'screens/AddPosts/AddPostsSuccessScreen';
-import AdditionalData from 'screens/AddPosts/AdditionalData';
 
 const Stack = createNativeStackNavigator<AddPostScreenNavigatorParamsList>();
 
@@ -29,13 +28,6 @@ const AddPostStack = () => {
       <Stack.Screen
         name="AddPostSuccess"
         component={AddPostsSuccessScreen}
-        options={{
-          headerShown: false,
-        }}
-      />
-      <Stack.Screen
-        name="AdditionalDataScreen"
-        component={AdditionalData}
         options={{
           headerShown: false,
         }}

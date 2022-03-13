@@ -55,7 +55,7 @@ const DateComponent = ({
           mode={'date'}
           open={openStart}
           date={dateStart}
-          locale={'Ru'}
+          locale={'ru-Ru'}
           onConfirm={date => {
             setOpenStart(false);
             setDateStart(date);
@@ -91,7 +91,7 @@ const DateComponent = ({
           mode={'date'}
           open={openFinish}
           date={dateFinish}
-          locale={'Ru'}
+          locale={'ru-Ru'}
           onConfirm={date => {
             setOpenFinish(false);
             setDateFinish(date);

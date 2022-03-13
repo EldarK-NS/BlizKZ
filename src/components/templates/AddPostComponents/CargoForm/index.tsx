@@ -1,4 +1,12 @@
-import {StyleSheet, View, ScrollView, Text} from 'react-native';
+import {
+  StyleSheet,
+  View,
+  Modal,
+  Pressable,
+  Text,
+  ScrollView,
+  TouchableOpacity,
+} from 'react-native';
 import React, {useContext, useEffect, useState} from 'react';
 import {AppContext} from 'context/App';
 import {observer} from 'mobx-react';
@@ -6,7 +14,6 @@ import {toJS} from 'mobx';
 import {useForm} from 'react-hook-form';
 import MyDropDown from 'atoms/MyDropDown';
 import MyButton from 'atoms/MyButton';
-import MyBottomSheet from 'atoms/MyBottomSheet';
 import PlaceAutocomplite from 'organisms/PlaceComponent';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import InputPlaceComponent from 'atoms/InputPlaceComponent';
@@ -18,6 +25,8 @@ import {NativeStackNavigationProp} from '@react-navigation/native-stack';
 import {AddPostScreenNavigatorParamsList} from 'nav/types';
 import {RouteProp} from '@react-navigation/native';
 import ButtonForAdditData from 'atoms/ButtonForAdditData';
+import CheckBoxForm from 'atoms/CheckBoxForm';
+import Entypo from 'react-native-vector-icons/Entypo';
 
 interface IPlces {
   id: string | null;
@@ -46,14 +55,13 @@ const CargoForm = ({navigation, route}: ICargoFormProps): JSX.Element => {
     auxiliaryStore.getTypeOfTransport();
     auxiliaryStore.getDocs();
     auxiliaryStore.getConditions();
+    auxiliaryStore.getLoadings();
+    auxiliaryStore.getAdditConditions();
   }, []);
 
   useEffect(() => {
     auxiliaryStore.getSubTypeOfTransport(transportId);
   }, [transportId]);
-
-  //!OpenBottomSheet
-  const [openModal, setOpenModal] = useState<boolean>(false);
 
   //!StartPlace
   const [startPlace, setStartPlace] = useState<IPlces>({
@@ -73,8 +81,10 @@ const CargoForm = ({navigation, route}: ICargoFormProps): JSX.Element => {
   //!DropDown zIndex
   const [activeDD, setActiveDD] = useState<string>('');
 
-  //!Modal for CheckBox Form
-  const [chekBoxOpen, setCheckBoxOpen] = useState<boolean>(false);
+  //!Open modals
+  const [modalPlaceVisible, setModalPlacelVisible] = useState<boolean>(false);
+  const [modalCheckBoxVisible, setModalCheckBoxlVisible] =
+    useState<boolean>(false);
 
   const {
     control,
@@ -88,12 +98,14 @@ const CargoForm = ({navigation, route}: ICargoFormProps): JSX.Element => {
 
   return (
     <KeyboardAwareScrollView
+      keyboardShouldPersistTaps={'always'}
       enableOnAndroid={true}
       enableAutomaticScroll={true}
-      extraScrollHeight={20}>
+      extraScrollHeight={20}
+      style={{flex: 1}}>
       <InputPlaceComponent
         onpress={() => {
-          setOpenModal(!openModal);
+          setModalPlacelVisible(!modalPlaceVisible);
         }}
         placeFrom={startPlace.placeName ? startPlace.placeName : ''}
         placeTo={finishPlace.placeName ? finishPlace.placeName : ''}
@@ -241,7 +253,7 @@ const CargoForm = ({navigation, route}: ICargoFormProps): JSX.Element => {
         />
       </View>
       <TextComponent
-        text={'Документу, Условия погрузки, Условия транспортировки'}
+        text={'Документы, Условия погрузки, Условия транспортировки'}
         text_color={'second'}
         type={'h4'}
         font_family={'semi'}
@@ -251,7 +263,8 @@ const CargoForm = ({navigation, route}: ICargoFormProps): JSX.Element => {
       <ButtonForAdditData
         button_title="Выбрать дополнительные условия"
         Style={{paddingHorizontal: 16, paddingVertical: 10}}
-        onpress={() => console.log('pressed')}
+        // onpress={() => setShowCheckBox(!showCheckBox)}
+        onpress={() => setModalCheckBoxlVisible(!modalCheckBoxVisible)}
       />
       <MyButton
         onpress={handleSubmit(confirmPost)}
@@ -260,12 +273,72 @@ const CargoForm = ({navigation, route}: ICargoFormProps): JSX.Element => {
         background={'blue'}
         Style={{marginVertical: 20, width: '90%', alignSelf: 'center'}}
       />
-      <MyBottomSheet open={openModal}>
-        <PlaceAutocomplite
-          setStartPlace={(v: IPlces) => setStartPlace(v)}
-          setFinishPlace={(v: IPlces) => setFinishPlace(v)}
-        />
-      </MyBottomSheet>
+      <Modal
+        animationType="slide"
+        transparent={true}
+        visible={modalCheckBoxVisible}
+        onRequestClose={() => {
+          // Alert.alert('Modal has been closed.');
+          setModalCheckBoxlVisible(!modalCheckBoxVisible);
+        }}>
+        <View style={styles.centeredView}>
+          <View style={styles.modalView}>
+            <ScrollView showsVerticalScrollIndicator={false}>
+              <CheckBoxForm
+                title={'Документы'}
+                data={toJS(auxiliaryStore.docsList)}
+                control={control}
+                name={'docs'}
+              />
+              <CheckBoxForm
+                title={'Условия погрузки'}
+                data={toJS(auxiliaryStore.loadingList)}
+                control={control}
+                name={'loadings'}
+              />
+              <CheckBoxForm
+                title={'Условия транпортировки'}
+                data={toJS(auxiliaryStore.conditionList)}
+                control={control}
+                name={'conditions'}
+              />
+              <CheckBoxForm
+                title={'Доп условия'}
+                data={toJS(auxiliaryStore.additConditionList)}
+                control={control}
+                name={'addit_conditions'}
+              />
+              <TouchableOpacity
+                onPress={() => setModalCheckBoxlVisible(!modalCheckBoxVisible)}
+                style={styles.confirm}>
+                <Text style={styles.buttonText}>ПОДТВЕРДИТЬ</Text>
+              </TouchableOpacity>
+            </ScrollView>
+          </View>
+        </View>
+      </Modal>
+      <Modal
+        animationType="slide"
+        transparent={true}
+        visible={modalPlaceVisible}
+        onRequestClose={() => {
+          // Alert.alert('Modal has been closed.');
+          setModalPlacelVisible(!modalPlaceVisible);
+        }}>
+        <View style={styles.centeredView}>
+          <View style={styles.modalView}>
+            <PlaceAutocomplite
+              setStartPlace={(v: IPlces) => setStartPlace(v)}
+              setFinishPlace={(v: IPlces) => setFinishPlace(v)}
+            />
+            <TouchableOpacity
+              onPress={() => setModalPlacelVisible(!modalPlaceVisible)}
+              style={[styles.confirm, {position: 'absolute', bottom: 100}]}>
+              <Text style={styles.buttonText}>ПОДТВЕРДИТЬ</Text>
+            </TouchableOpacity>
+          </View>
+        </View>
+      </Modal>
     </KeyboardAwareScrollView>
   );
 };
@@ -280,5 +353,40 @@ const styles = StyleSheet.create({
   rowBackground: {
     width: '100%',
     backgroundColor: colors.form_background,
+  },
+  centeredView: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 22,
+  },
+  modalView: {
+    flex: 1,
+    backgroundColor: 'white',
+    borderRadius: 30,
+    padding: 40,
+    alignItems: 'center',
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.5,
+    shadowRadius: 7,
+    elevation: 8,
+  },
+  confirm: {
+    alignSelf: 'center',
+    width: 300,
+    height: 50,
+    backgroundColor: colors.blue,
+    borderRadius: 20,
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  buttonText: {
+    color: 'white',
+    fontSize: 17,
+    fontFamily: 'IBMPlexSans-SemiBold',
   },
 });

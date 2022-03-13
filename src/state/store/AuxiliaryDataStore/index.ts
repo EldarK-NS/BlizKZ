@@ -84,7 +84,7 @@ export default class AuxiliaryDataStore extends BaseStore {
       success: res => {
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         //@ts-ignore
-        this.loadingList = res;
+        this.loadingList = res.data;
       },
       onFinally: () => {
         this.loadingStore.setLoading(false);
@@ -112,7 +112,7 @@ export default class AuxiliaryDataStore extends BaseStore {
       success: res => {
         // eslint-disable-next-line @typescript-eslint/ban-ts-comment
         //@ts-ignore
-        this.additConditionList = res;
+        this.additConditionList = res.data;
       },
       onFinally: () => {
         this.loadingStore.setLoading(false);
