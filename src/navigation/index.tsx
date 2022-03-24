@@ -31,7 +31,7 @@ const Navigator = observer((): JSX.Element => {
     };
   }, []);
 
-  console.log('NAV', phone, password, isAuth);
+  // console.log('NAV', phone, password, isAuth);
 
   useEffect(() => {
     if (phone?.length && password?.length) {

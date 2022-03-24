@@ -64,7 +64,9 @@ const MyDropDown = ({
               }}
               style={[
                 styles.titleWrapper,
-                {borderColor: !error?.message ? colors.lightGrey : 'red'},
+                {
+                  borderColor: !error?.message ? colors.lightGrey : 'red',
+                },
               ]}>
               <TextComponent
                 text={itemName.length ? itemName : placeholder}

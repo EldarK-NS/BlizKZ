@@ -12,7 +12,7 @@ export default class LocalClient implements ILocalClient {
       }
       return res;
     } catch (e) {
-      console.log('LOCAL CLIENT ERROR', e);
+      // console.log('LOCAL CLIENT ERROR', e);
     }
   }
 
@@ -24,7 +24,7 @@ export default class LocalClient implements ILocalClient {
       }
       return JSON.parse(res);
     } catch (e) {
-      console.log('LOCAL CLIENT ERROR', e);
+      // console.log('LOCAL CLIENT ERROR', e);
     }
   }
 
@@ -41,7 +41,7 @@ export default class LocalClient implements ILocalClient {
       const jsonValue = JSON.stringify(value);
       return await this.storage.setItem(key, jsonValue);
     } catch (e) {
-      console.log('LOCAL CLIENT ERROR', e);
+      // console.log('LOCAL CLIENT ERROR', e);
     }
   }
 
@@ -49,7 +49,7 @@ export default class LocalClient implements ILocalClient {
     try {
       return await this.storage.removeItem(key);
     } catch (e) {
-      console.log('LOCAL CLIENT ERROR', e);
+      // console.log('LOCAL CLIENT ERROR', e);
     }
   }
 }

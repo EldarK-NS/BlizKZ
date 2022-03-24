@@ -31,7 +31,7 @@ const AddPostsFormScreen: React.FC<IAddPostsFormScreenProps> = ({
         type={'normal'}
         navigation={navigation}
         nav_title="Назад"
-        title="Добавить груз"
+        title={`Add ${formType}`}
       />
       {formType === 'Cargo' ? (
         <CargoForm navigation={navigation} route={route} />

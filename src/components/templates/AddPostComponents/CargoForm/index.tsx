@@ -26,7 +26,6 @@ import {AddPostScreenNavigatorParamsList} from 'nav/types';
 import {RouteProp} from '@react-navigation/native';
 import ButtonForAdditData from 'atoms/ButtonForAdditData';
 import CheckBoxForm from 'atoms/CheckBoxForm';
-import Entypo from 'react-native-vector-icons/Entypo';
 
 interface IPlces {
   id: string | null;

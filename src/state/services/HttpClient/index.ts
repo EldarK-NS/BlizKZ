@@ -26,12 +26,12 @@ $axios.interceptors.request.use(
     //   config.headers.Authorization = `Bearer ${authToken}`;
     // }
 
-    console.log({
-      baseUrl: config.baseURL,
-      url: config.url,
-      //   authToken,
-      method: config.method,
-    });
+    // console.log({
+    //   baseUrl: config.baseURL,
+    //   url: config.url,
+    //   //   authToken,
+    //   method: config.method,
+    // });
 
     return config;
   },
